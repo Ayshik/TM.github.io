@@ -11,7 +11,7 @@
 		global $dbName;
 		$conn = mysqli_connect($serverName, $userName,  $password, $dbName);
 		mysqli_query($conn,$query);
-		
+
 	}
 
 	function get($query)
@@ -24,7 +24,5 @@
 		$result=mysqli_query($conn,$query);
 		mysqli_close($conn);
 		return $result;
-	}
-
-
+/* ayta alada kore rakhte hobe */
 ?>
