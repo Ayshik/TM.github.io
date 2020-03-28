@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -11,11 +10,11 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	body{
-background:#f9f9fb;
-background-color:black;
+background:#f9f9fb; 
+background-color:black;   
 }
 .view-account{
-background:#FFFFFF;
+background:#FFFFFF; 
 margin-top:20px;
 }
 .view-account .pro-label {
@@ -599,11 +598,10 @@ color: #a2a6af
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
-  	<form method="post" action="controler/tcont.php" enctype="multipart/form-data">
     <div class="view-account">
         <section class="module">
             <div class="module-inner">
-
+                
                 <div class="content-panel">
                    <center> <h1 class="title">Profile<span class="pro-label label label-warning"><sup>TEACHER</sup></span></h1></center>
                     <form class="form-horizontal">
@@ -614,42 +612,42 @@ color: #a2a6af
                                     <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input type="file" name="image" class="file-uploader pull-left">
-                                    <input type="submit" class="btn btn-sm btn-default-alt pull-left" name="add_product" value="Add Product">
+                                    <input type="file" class="file-uploader pull-left">
+                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your name" disabled>
+                                    <input type="text" class="form-control" value="Enter your name" disabled> 
                                 </div>
                             </div>
-
+        
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="text" class="form-control" value="Enter your full name" disabled>
                                 </div>
                             </div>
-
+							
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Institute</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="text" class="form-control" value="Enter your institute name">
-
+                                    
                                 </div>
                             </div>
-
-
+							
+							
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Category</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="text" class="form-control" value="Enter your category" disabled>
-
+                                    
                                 </div>
                             </div>
-
-
+							
+                            
                         </fieldset>
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title"><b>Contact Info</b></h3>
@@ -657,68 +655,68 @@ color: #a2a6af
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="email" class="form-control" value="Enter your Email address" disabled>
-
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone Number</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="text" class="form-control" value="Enter your phone number">
-
+                                    
                                 </div>
                             </div>
-
-
+							
+							
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="text" class="form-control" value="Enter your address">
-
+                                    
                                 </div>
                             </div>
-
-
-
-
+							
+							
+							
+							
                         </fieldset>
-
-
+						
+						
 						<fieldset class="fieldset">
                             <h3 class="fieldset-title"><b>Update Password</b></h3>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="password" class="form-control" placeholder="Enter your recent password">
-
+                                    
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="password" class="form-control" placeholder="Enter a new password">
-
+                                    
                                 </div>
                             </div>
-
-
+							
+							
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Confirm Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
                                     <input type="password" class="form-control" placeholder="Enter new password again">
-
+                                    
                                 </div>
                             </div>
-
+							
 							<div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
                                 <input class="btn btn-primary" type="submit" value="Update Password">
                             </div>
                         </div>
-
-
+							
+							
                         </fieldset>
-
-
+						
+						
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
@@ -734,7 +732,7 @@ color: #a2a6af
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+	
 </script>
 </body>
 </html>
