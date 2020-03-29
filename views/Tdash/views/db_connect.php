@@ -11,7 +11,7 @@
 		global $dbName;
 		$conn = mysqli_connect($serverName, $userName,  $password, $dbName);
 		mysqli_query($conn,$query);
-
+		
 	}
 
 	function get($query)

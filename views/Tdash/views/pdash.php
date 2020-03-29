@@ -1,4 +1,12 @@
+<?php
+	  require_once ('../controler/tcont.php');
 
+
+	   $product=getProduct();
+
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -8,7 +16,7 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
     <!--  All snippets are MIT license https://bootdey.com/license -->
-    <title>Bootdey.com</title>
+    <title>Teacher Frofile Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -604,13 +612,14 @@ color: #a2a6af
 
 <div class="container">
 
+
     <div class="view-account">
         <section class="module">
             <div class="module-inner">
 
                 <div class="content-panel">
                    <center> <h1 class="title">Profile<span class="pro-label label label-warning"><sup>TEACHER</sup></span></h1></center>
-                    <form method="post" action="controler/tcont.php"  enctype="multipart/form-data" class="form-horizontal">
+                    <form method="post" action="../controler/tcont.php"  enctype="multipart/form-data" class="form-horizontal">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title"><b>Personal Info</b></h3>
                             <div class="form-group avatar">
@@ -625,21 +634,21 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your name" disabled>
+                                    <input type="text" class="form-control" value="=------------------" disabled>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your full name" disabled>
+                                    <input type="text" class="form-control" value="--------------" disabled>
                                 </div>
                             </div>
 
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Institute</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your institute name">
+                                    <input type="text" name="inst" class="form-control" value="-----------------">
 
                                 </div>
                             </div>
@@ -734,7 +743,7 @@ color: #a2a6af
             </div>
         </section>
     </div>
-  
+
 </div>
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
