@@ -624,31 +624,31 @@ color: #a2a6af
                             <h3 class="fieldset-title"><b>Personal Info</b></h3>
                             <div class="form-group avatar">
                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                    <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                    <input type="image" class="img-rounded img-responsive" name=""="prev_image"  src="<?php echo $product["Picture"]?>" >
                                 </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
                                     <input type="file"  name="image" class="file-uploader pull-left">
-                                    <input type="submit" name="add_product" class="btn btn-sm btn-default-alt pull-left" value="Add Product" >
+                                    <input type="submit" name="add_product" class="btn btn-sm btn-default-alt pull-left" value="Upload" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="=------------------" disabled>
+                                    <input type="text"  name="uid" class="form-control" value="<?php echo $product["UserName"]?>" disabled>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="--------------" disabled>
+                                    <input type="text"  name="name" class="form-control" value="<?php echo $product["Name"]?>" disabled>
                                 </div>
                             </div>
 
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Institute</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" name="inst" class="form-control" value="-----------------">
+                                    <input type="text" name="inst" class="form-control" value="<?php echo $product["Institute"]?>">
 
                                 </div>
                             </div>
@@ -657,7 +657,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Category</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your category" disabled>
+                                    <input type="text" class="form-control" value="<?php echo $product["Type"]?>" disabled>
 
                                 </div>
                             </div>
@@ -669,14 +669,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="Enter your Email address" disabled>
+                                    <input type="email" class="form-control" value="<?php echo $product["Email"]?>" disabled>
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone Number</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your phone number">
+                                    <input type="text" class="form-control" value="<?php echo $product["Phone"]?>">
 
                                 </div>
                             </div>
@@ -685,7 +685,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your address">
+                                    <input type="text" class="form-control" value="<?php echo $product["Address"]?>">
 
                                 </div>
                             </div>
@@ -701,7 +701,7 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="Enter your recent password">
+                                    <input type="password" class="form-control" placeholder="<?php echo $product["Password"]?>">
 
                                 </div>
                             </div>

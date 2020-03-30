@@ -22,7 +22,7 @@
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     //echo $target_file;
-    $query="UPDATE `teacher` SET `Picture`='$target_file' WHERE `UserName`='Saad112'";
+    $query="UPDATE `teacher` SET `Picture`='$target_file' WHERE `UserName`='a112'";
     execute($query);
 
 
@@ -30,9 +30,11 @@
 
   function getProduct()
   {
+
+
     $query="SELECT * FROM teacher WHERE UserName='a112'";
     $product=get($query);
-    return $product;
+    return $product[0];
 
   }
 
