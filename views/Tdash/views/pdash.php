@@ -2,7 +2,7 @@
 	  require_once ('../controler/tcont.php');
 
 
-	   $product=getProduct();
+	   $product=getdetails();
 
 
 
@@ -628,7 +628,7 @@ color: #a2a6af
                                 </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
                                     <input type="file"  name="image" class="file-uploader pull-left">
-                                    <input type="submit" name="add_product" class="btn btn-sm btn-default-alt pull-left" value="Upload" >
+                                    <input type="submit" name="add_picture" class="btn btn-sm btn-default-alt pull-left" value="Upload Image" >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -641,14 +641,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text"  name="name" class="form-control" value="<?php echo $product["Name"]?>" disabled>
+                                    <input type="text"  name="fname" class="form-control" value="<?php echo $product["Name"]?>" disabled>
                                 </div>
                             </div>
 
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Institute</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" name="inst" class="form-control" value="<?php echo $product["Institute"]?>">
+                                    <input type="text" name="institute" class="form-control" value="<?php echo $product["Institute"]?>">
 
                                 </div>
                             </div>
@@ -657,7 +657,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Category</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="<?php echo $product["Type"]?>" disabled>
+                                    <input type="text"  name="type" class="form-control" value="<?php echo $product["Type"]?>" disabled>
 
                                 </div>
                             </div>
@@ -669,14 +669,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="<?php echo $product["Email"]?>" disabled>
+                                    <input type="email" name="email" class="form-control" value="<?php echo $product["Email"]?>" disabled>
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone Number</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="<?php echo $product["Phone"]?>">
+                                    <input type="text" name="phone" class="form-control" value="<?php echo $product["Phone"]?>">
 
                                 </div>
                             </div>
@@ -685,7 +685,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="<?php echo $product["Address"]?>">
+                                    <input type="text" name="address" class="form-control" value="<?php echo $product["Address"]?>">
 
                                 </div>
                             </div>
@@ -701,14 +701,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="<?php echo $product["Password"]?>">
+                                    <input type="password" name="mpss" class="form-control" placeholder="<?php echo $product["Password"]?>">
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="Enter a new password">
+                                    <input type="password" name="npss" class="form-control" placeholder="Enter a new password">
 
                                 </div>
                             </div>
@@ -717,16 +717,12 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Confirm Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="Enter new password again">
+                                    <input type="password" name="cpss" class="form-control" placeholder="Enter new password again">
 
                                 </div>
                             </div>
 
-							<div class="form-group">
-                            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input class="btn btn-primary" type="submit" value="Update Password">
-                            </div>
-                        </div>
+
 
 
                         </fieldset>
@@ -735,7 +731,7 @@ color: #a2a6af
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                               <center> <input class="btn btn-primary" type="submit"  value="Update Profile"></center>
+                               <center> <input class="btn btn-primary" name="Update_teacher" type="submit"  value="Update Profile"></center>
                             </div>
                         </div>
                     </form>

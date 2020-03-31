@@ -5,82 +5,172 @@ include('sheader.php');
 
 include('snavbar.php');
 require ('../controler/scont.php');
-$products = getteacher();
+$products = getstudent();
 
 
 ?>
 
 <style>
-table {
-  border-collapse: collapse;
-  width: 100%;
+body{
+	background-color:white;
+	padding:0px;
 
-margin-top: 34px;
+}
+.card{
+	border:1px solid black;
+	width:300px;
+	height:50px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	border-radius: 5px;
+	text-align: center;
+	background-color:black;
+	padding:5px;
 
 
 }
+.text{
+	font-family:consolas;
+	color:black;
+}
+.text-white{
+	font-family:consolas;
+	color:white;
+}
+.footer{
+	position:fixed;
+	left:0;
+	bottom:0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-family:consolas;
+
+}
+.header{
+	position:relative;
+	left:0;
+	top:0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-family:consolas;
+	padding:5px;
+
+}
+.center{
+	margin: 0 auto;
+    width:50% ;
+	padding:20px;
 
 
-th, td {
-  text-align: left;
-  padding: 8px;
+}
+.header-index{
+	position:relative;
+	left:0;
+	top:0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	font-family:consolas;
+	padding:5px;
+
+}
+.name{
+	font-family:consolas;
+	font-size:16px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+.card-product{
+	border:1px solid;
+	width:200px;
+	height:349px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	border-radius: 15px;
+	text-align: center;
+	padding:5px;
 
-th {
-  background-color: #4CAF50;
-  color: white;
+
 }
+.card-image{
+	width:190px;
+	height:190px;
+	border-radius: 5px;
+}
+.card-text{
+	text-align:center;
 
-table tr:not(:first-child){
-               cursor: pointer;transition: all .25s ease-in-out;
-           }
-           table tr:not(:first-child):hover{background-color: #ddd;}
+}
+.price-label{
+	width:185px;
+	padding:3px;
+	margin-left:2px;
+	background-color:black;
+	color:white;
+	border-radius: 5px;
+}
+.center-index{
+	margin: 0 auto;
+    width:90% ;
+	padding:20px;
 
-
-
-           .cardpro {
-             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-             max-width: 300px;
-             margin: auto;
-             text-align: center;
-             font-family: arial;
-             border-radius: 17px;
-                 margin-top: 42px;
-
-           }
-
-           .title {
-             color: grey;
-             font-size: 18px;
-           }
-
-           button {
-             border: none;
-             outline: 0;
-             display: inline-block;
-             padding: 8px;
-             color: white;
-             background-color: #000;
-             text-align: center;
-             cursor: pointer;
-             width: 100%;
-             font-size: 18px;
-           }
-
-           a {
-             text-decoration: none;
-
-             color: black;
-           }
-
-           button:hover, a:hover {
-             opacity: 0.7;
-           }
+}
+.item-image{
+	width:200px;
+	height:250px;
+	border-radius: 5px;
+}
+.center-login{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	padding-left:100px;
+	padding-right:100px;
+	padding-bottom:10px;
+	border:1px solid black;
+	border-radius:10px;
+	vertical-align:center;
 
 
+}
+.btn{
+	font-family:consolas;
+}
+.ca {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    width: 185px;
+    font-family: consolas;
+    margin-top: 5px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 
+}
 
 
 
@@ -300,50 +390,29 @@ table tr:not(:first-child){
             <input type="Submit" value="Find">
 
           </div>
-          <div class="col-md-4"></div>
-
-          <table id="table" border="1">
-                <tr>
-                  <th>Username</th>
-                  <th>Name</th>
-                  <th>Inistitute</th>
-                  <th>Address</th>
-                  <th>Type</th>
+          <div class="col-md-12">
+              <?php
+                foreach($products as $product)
+                {
+              ?>
+                <div class="card-product col-md-4">
 
 
-                </tr>
-                <tbody>
-                  <?php
-                    foreach($products as $product)
-                    {
-                      echo "<tr>";
-                        echo "<td>".$product["UserName"]."</td>";
-                        echo "<td>".$product["Name"]."</td>";
-                        echo "<td>".$product["Institute"]."</td>";
-                        echo "<td>".$product["Address"]."</td>";
-                        echo "<td>".$product["Type"]."</td>";
+                      <img class="card-image" src="<?php echo $product["Picture"];?>"></img>
+                      <b class="text"> <?php echo $product["Name"];?></b><br>
+                        <b class="text"> <?php echo $product["Institute"];?></b><br>
+                          <b class="text"> <?php echo $product["Address"];?></b><br>
 
-                      echo "</tr>";
-                    }
-                  ?>
+                    <div class="price-label"><span ><b><?php echo $product["UserName"];?></b></span></div>
 
-                </tbody>
+                    <div class="ca"><a class="cb" style="width:185px;font-family:consolas;margin-top:5px;">Contract</a></span></div>
 
-              </table>
+                </div>
+              <?php
+                }
+              ?>
 
-
-
-<div class="cardpro">
-  <center><h2 style="text-align:center">User Profile</h2></center>
-  <img src="https://lh3.googleusercontent.com/NebHoHuqhp7grdL3_8phy44hMwaYtuxevs0cGyxMe_kWnBw6mxyp3cC1sWmWPpEOBFeEMWKXbH3w_JmnJm17ZqVunF0cEYXFVHD0WpqZ5FgU7oIClyI09XDrwjXonQHTSLF9FfMZKWWH9QohxqgthW5xNG4glvYslvkPcVnO_NerQbjaZUtUb1E_56fXgHvPLC2Ha_G5REsh0obYmdWpNZPP7OjZTdbDgf9t0HqDkjhDJw6oiiMMDBlTr9y8RCrY2wDdXZdK70CbUdaf7JxeIfB69ceFGClZL78BUbc3UY91ri0x4YAr3uhMdd5gcQZq1BpGLsdAg1XiFrcrJ0bvC70R_4iIlHXu0T6NUIr7YqvHxoqd8B-LJsX033iYlsibrpzAzjQs_OqcVHySnt23DhjGcAwO3-zO8llc8HwFAUYXVV8Ey5JpEOcajb0ly2JRwJVvRgP6ztTOMY6nvVAIbdAl1B7AsLjvGUA4p1J2WFdTAIXd_aNFcRFRQ3JdQSZkDBdWEq3XrujCXtKTN3CoY3jNaCm7oqdpotMkH7GhaDyd5E_RlmjElfeBFNvJ82Tmu9vcSo4btdwC4FkJZZBw7iDwQvZKktmyOoKJcV9WjM3rooAeAU5MImZ4sfoi1rZILIoDFn8uNo5HEuKpwoNzZmlAYYVDrPpGmqcbol9J1bQks3g=w493-h657-no" alt="John" style="width:100%">
-  <h1>Ayshik Khan</h1>
-  <p class="title">Teacher</p>
-  <p>American International University</p>
-  <div style="margin: 24px 0;">
-     <p>Kuril,Dhaka</p>
-  </div>
-  <p><button disabled>Ayshik112</button></p>
-</div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->

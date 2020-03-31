@@ -1,10 +1,25 @@
+<?php
+	  require_once ('../controler/scont.php');
+
+
+	   $product=getdetails();
+
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
     <!--  All snippets are MIT license https://bootdey.com/license -->
-    <title>Bootdey.com</title>
+    <title>Student Frofile Update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -604,36 +619,36 @@ color: #a2a6af
 
                 <div class="content-panel">
                    <center> <h1 class="title">Profile<span class="pro-label label label-warning"><sup>STUDENT</sup></span></h1></center>
-                    <form class="form-horizontal">
+                    <form method="post" action="../controler/scont.php"  enctype="multipart/form-data" class="form-horizontal">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title"><b>Personal Info</b></h3>
                             <div class="form-group avatar">
                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                    <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                    <input type="image" class="img-rounded img-responsive" name=""="prev_image"  src="<?php echo $product["Picture"]?>">
                                 </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input type="file" class="file-uploader pull-left">
-                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                    <input type="file" name="image" class="file-uploader pull-left">
+                                    <button type="submit"  name="add_picture" class="btn btn-sm btn-default-alt pull-left">Upload Image</button>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your name" disabled>
+                                    <input type="text" class="form-control" name="username" value="<?php echo $product["UserName"]?>" disabled>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your full name" disabled>
+                                    <input type="text" class="form-control" name="name" value="<?php echo $product["Name"]?>" disabled>
                                 </div>
                             </div>
 
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Institute</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your institute name">
+                                    <input type="text" class="form-control" name="institute" value="<?php echo $product["Institute"]?>">
 
                                 </div>
                             </div>
@@ -642,7 +657,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Category</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your category" disabled>
+                                    <input type="text" class="form-control" name="type" value="<?php echo $product["Type"]?>" disabled>
 
                                 </div>
                             </div>
@@ -654,14 +669,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="Enter your Email address" disabled>
+                                    <input type="email" class="form-control" name="email" value="<?php echo $product["Email"]?>" disabled>
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone Number</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your phone number">
+                                    <input type="text" class="form-control" name="phone" value="<?php echo $product["Phone"]?>">
 
                                 </div>
                             </div>
@@ -670,7 +685,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Enter your address">
+                                    <input type="text" class="form-control" name="address" value="<?php echo $product["Address"]?>">
 
                                 </div>
                             </div>
@@ -686,14 +701,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="Enter your recent password">
+                                    <input type="password" class="form-control" name="mpass" placeholder="<?php echo $product["Password"]?>">
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="Enter a new password">
+                                    <input type="password" class="form-control" name="npass" placeholder="Enter a new password">
 
                                 </div>
                             </div>
@@ -702,16 +717,12 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Confirm Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" placeholder="Enter new password again">
+                                    <input type="password" class="form-control" name="cpss" placeholder="Enter new password again">
 
                                 </div>
                             </div>
 
-							<div class="form-group">
-                            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input class="btn btn-primary" type="submit" value="Update Password">
-                            </div>
-                        </div>
+							
 
 
                         </fieldset>
@@ -720,7 +731,7 @@ color: #a2a6af
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                               <center> <input class="btn btn-primary" type="submit" value="Update Profile"></center>
+                               <center> <input type="submit" class="btn btn-primary" name="Update_student"  value="Update Profile"></center>
                             </div>
                         </div>
                     </form>

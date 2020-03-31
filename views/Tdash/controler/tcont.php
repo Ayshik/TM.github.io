@@ -1,10 +1,14 @@
 <?php
 
   require_once '../models/db_connect.php';
-  if(isset($_POST["add_product"]))
+  if(isset($_POST["add_picture"]))
 	{
 		insertPicture();
 	}
+  else if(isset($_POST["Update_teacher"]))
+  {
+    Profileupdate();
+  }
 	function getteacher()
 	{
 		$query ="SELECT * FROM teacher";
@@ -28,7 +32,7 @@
 
   }
 
-  function getProduct()
+  function getdetails()
   {
 
 
@@ -37,5 +41,32 @@
     return $product[0];
 
   }
+
+  function Profileupdate()
+  {
+
+    $institute=$_POST["institute"];
+
+    $email=$_POST["email"];
+    $phone=$_POST["phone"];
+    $address=$_POST["address"];
+    $password=$_POST["mpass"];
+      $npassword=$_POST["npass"];
+        $cpass=$_POST["cpass"];
+
+
+    $query="UPDATE student SET Institute=$institute,Phone=$phone,Address=$address,Password=$password WHERE UserName='a112'";
+    execute($query);
+
+
+  }
+
+
+
+
+
+
+
+
 
 ?>

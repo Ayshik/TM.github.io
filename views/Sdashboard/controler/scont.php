@@ -1,54 +1,61 @@
 <?php
 
   require_once '../models/db_connect.php';
- if(isset($_POST["edit_product"]))
+  if(isset($_POST["add_picture"]))
   {
-    Profileupdate();
+    insertPicture();
   }
-	function getteacher()
+  else if(isset($_POST["Update_student"]))
 	{
-		$query ="SELECT * FROM teacher";
-		$products = get($query);
-		return $products;
+		Profileupdate();
 	}
+  function getstudent()
+  {
+    $query ="SELECT * FROM student";
+    $products = get($query);
+    return $products;
+  }
 
-  function getdetails()
-	{
-		$query="SELECT * FROM student WHERE UserName='a112'";
-		$product=get($query);
-		return $product;
+  function insertPicture()
+  {
 
-	}
-
-  function Profileupdate()
-  {  $target_file=$_POST["prev_image"];
-    $name=$_POST["name"];
-    $uname=$_POST["username"];
-    $institute=$_POST["institute"];
-    $type=$_POST["type"];
-    $email=$_POST["email"];
-    $phone=$_POST["phone"];
-    $address=$_POST["address"];
-    $password=$_POST["mpass"];
-      $npassword=$_POST["npass"];
-        $cpassword=$_POST["cpass"];
-    /* //file upload
+     //file upload
         $target_dir="../storage/product_image/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-    //echo $target_file;*/
-    if(file_exists($_FILES['image']['tmp_name']) || is_uploaded_file($_FILES['image']['tmp_name']))
-    {
-      $target_dir="../storage/product_image/";
-      $target_file = $target_dir . basename($_FILES["image"]["name"]);
-      $uploadOk = 1;
-      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-      move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-      //echo 'No upload';
-    }
-    $query="UPDATE `student` SET 'UserName'='$uname','Name'='$name','Institute'='$institute','Type'='$type','Email'='$email','Phone'='$phone','Address'='$address','Password'='$cpassword',`Picture`='$target_file' WHERE `UserName`='a112'";
+    //echo $target_file;
+    $query="UPDATE `student` SET `Picture`='$target_file' WHERE `UserName`='Ayshik111'";
+    execute($query);
+
+
+  }
+
+  function getdetails()
+  {
+
+
+    $query="SELECT * FROM student WHERE UserName='Ayshik111'";
+    $product=get($query);
+    return $product[0];
+
+  }
+
+  function Profileupdate()
+  {
+
+    $institute=$_POST["institute"];
+
+    $email=$_POST["email"];
+    $phone=$_POST["phone"];
+    $address=$_POST["address"];
+    $password=$_POST["mpass"];
+      $npassword=$_POST["npass"];
+        $cpass=$_POST["cpass"];
+
+
+    $query="UPDATE `student` SET 'Institute'=$institute,'Phone'=$phone,'Address'=$address,'Password'=$password WHERE `UserName`='Ayshik111'";
     execute($query);
 
 
