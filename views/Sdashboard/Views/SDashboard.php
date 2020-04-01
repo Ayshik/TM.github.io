@@ -335,7 +335,7 @@ body{
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayshik Khan</span>
+                <span name="uid" class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["loggedinuser"];?></span>
                 <img class="img-profile rounded-circle" src="https://lh3.googleusercontent.com/stYovA906ZBAqOzHLTIiBbthmd_mz6XthT_pArrPCIBlmTgByf7XGf3inM-wsULgEdnTh8II-3jwDUPt2ZZsWmgF-qc7Y7LBuQTluqe8AmX3XTHBIHNVqQ2oBcLJossiL0CeEXQeklw3DKfHO2sUEhbaP33tXnQtR_AdozcByjzUNmY0Yl-EX8UNQApSf90spk7pjzdXYmTWBvnH7-4S_CvcsTEcAhzpimqq0JT45k3D2yjGWxm4yZq1X1xIvEtnYlnbH4MmYWbUCYqoq6ci7lbd_zr3dmG9-1FLMMVeONbSfvIgmYgamI1QczRc2dSzl0Y820EVLTXz4OoFci42P7pv647xYzLHgDtYGk6Xy35TfmOMStNHS_-3ZBzgIUQlk4PEBF3ybuo8erJCUjX7L6vXQob_8qnjssS4hy2VvvJTia3EaikjsM_m-E_nnGCpalhmU1Nuu_ibXPKF7V_6NHTtHqaaO6nekzhm5OaEyfsuJ0Z9R4u_tY0lIxjCcc19vyoQLb-R_9zzxuZLQZOJz0SKjmegwZKnAejnhmygxnscDDbM5Umv7-kXSYEHjdH33Q0O1SMpYb-25t--fopgjgzQ0F-pUpN1G0_jV5bswnHsF42KBPMzvVcocZMG1ox8Nc6FmWD9DDPLEQ0hDBQcSahyfBgFamUYjneOu4NzHW19pU4=w322-h521-no">
               </a>
               <!-- Dropdown - User Information -->
