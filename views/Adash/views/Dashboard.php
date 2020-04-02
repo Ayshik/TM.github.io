@@ -5,179 +5,9 @@ include('Dashboard/header.php');
 
 include('Dashboard/navbar.php');
 
-require ('../controler/tcont.php');
-$products = getteacher();
+
 
 ?>
-
-
-
-<style>
-
-body{
-	background-color:white;
-	padding:0px;
-
-}
-.card{
-	border:1px solid black;
-	width:300px;
-	height:50px;
-	margin-left:10px;
-	margin-right:10px;
-	margin-top:10px;
-	border-radius: 5px;
-	text-align: center;
-	background-color:black;
-	padding:5px;
-
-
-}
-.text{
-	font-family:consolas;
-	color:black;
-}
-.text-white{
-	font-family:consolas;
-	color:white;
-}
-.footer{
-	position:fixed;
-	left:0;
-	bottom:0;
-	width: 100%;
-	background-color: black;
-	color: white;
-	text-align: center;
-	font-family:consolas;
-
-}
-.header{
-	position:relative;
-	left:0;
-	top:0;
-	width: 100%;
-	background-color: black;
-	color: white;
-	text-align: center;
-	font-family:consolas;
-	padding:5px;
-
-}
-.center{
-	margin: 0 auto;
-    width:50% ;
-	padding:20px;
-
-
-}
-.header-index{
-	position:relative;
-	left:0;
-	top:0;
-	width: 100%;
-	background-color: black;
-	color: white;
-	font-family:consolas;
-	padding:5px;
-
-}
-.name{
-	font-family:consolas;
-	font-size:16px;
-}
-
-.card-product{
-	border:1px solid;
-	width:200px;
-	height:349px;
-	margin-left:10px;
-	margin-right:10px;
-	margin-top:10px;
-	border-radius: 15px;
-	text-align: center;
-	padding:5px;
-
-
-}
-.card-image{
-	width:190px;
-	height:190px;
-	border-radius: 5px;
-}
-.card-text{
-	text-align:center;
-
-}
-.price-label{
-	width:185px;
-	padding:3px;
-	margin-left:2px;
-	background-color:black;
-	color:white;
-	border-radius: 5px;
-}
-.center-index{
-	margin: 0 auto;
-    width:90% ;
-	padding:20px;
-
-}
-.item-image{
-	width:200px;
-	height:250px;
-	border-radius: 5px;
-}
-.center-login{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	padding-left:100px;
-	padding-right:100px;
-	padding-bottom:10px;
-	border:1px solid black;
-	border-radius:10px;
-	vertical-align:center;
-
-
-}
-.btn{
-	font-family:consolas;
-}
-.ca {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-    width: 185px;
-    font-family: consolas;
-    margin-top: 5px;
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
-
-
-
-           </style>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -338,7 +168,7 @@ body{
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span name="uid" class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["loggedinuser"];?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayshik Khan</span>
                 <img class="img-profile rounded-circle" src="https://photos.app.goo.gl/VLoVwg3z8rdMy14C6">
               </a>
               <!-- Dropdown - User Information -->
@@ -374,52 +204,91 @@ body{
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="Wreport.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>survey Report</a>
           </div>
 
           <!-- Content Row -->
-
-
-
-          <!-- Content Row -->
-<div class="row">
+          <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">40,000 TK</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">215,000 tk</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Active Users</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                        </div>
+                        <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Content Row -->
-          <div class="col-md-4"></div>
-          <div class="col-md-4">
-            <input type="text" name= "ft" placeholder="Find Teacher " width="80%">
-            <input type="Submit" value="Find">
-
-          </div>
-
-          <div class="col-md-12">
-          		<?php
-          			foreach($products as $product)
-          			{
-          		?>
-          			<div class="card-product col-md-4">
-
-
-          						<img class="card-image" src="<?php echo $product["Picture"];?>"></img>
-          						<b class="text"> <?php echo $product["Name"];?></b><br>
-                      	<b class="text"> <?php echo $product["Institute"];?></b><br>
-                        	<b class="text"> <?php echo $product["Address"];?></b><br>
-
-          					<div class="price-label"><span ><b><?php echo $product["UserName"];?></b></span></div>
-
-          					<div class="ca"><a class="cb" style="width:185px;font-family:consolas;margin-top:5px;">Contract</a></span></div>
-
-          			</div>
-          		<?php
-          			}
-          		?>
-
-          </div>
 
 
         </div>

@@ -5,4 +5,5 @@ Nowadays student want tutor and teacher find student, For Searching tution  Both
 DAtaBase:    https://drive.google.com/open?id=13ADg8S-PReTvW0yA5YpIudEqiV72OswC
 
 
-Shohankhan13
+Database update hoise ayta fetch korar por database file import kore nis.
+google drive e database folder e tm.sql ase.

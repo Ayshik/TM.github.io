@@ -1,3 +1,15 @@
+
+<?php
+
+	require '../controler/acont.php';
+	$products = getainbox();
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,90 +99,142 @@ table tr:not(:first-child){
 
 .button:hover {opacity: 1}
 
+* {
+  box-sizing: border-box;
+}
+
+
+col-75.input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 83px 12px 21px 78px;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  position:center;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+     background: #66acb3;
+  padding: 84px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
 
 
 </style>
 </head>
 <body>
 
-<center><h1>Rate Teacher</h1><br><br></center>
-<center><h2>Teacher Id:</h2><input type="text" name="fname" id="fname" disabled><br><br></center>
+<center><h1>InBox</h1><br><br></center>
 
 
-<div>
-<div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
-</div>
-<button class="button">Rate</button><br><br>
+
+
   <table id="table" border="1">
-    <tr>
-      <th>Student ID</th>
-      <th>Student Name</th>
-      <th>Teacher ID</th>
-      <th>Teaching Month</th>
-      <th>Time Maintaining</th>
-      <th>Study Experience</th>
-      <th>Teaching Quality</th>
-      <th>Comments</th>
-      <th>Rating</th>
+    <thead>
+      <th>SL.</th>
+        <th>Sender Id</th>
+      <th>From</th>
+      
+      <th>Date & Time</th>
+      <th>Massage</th>
 
-    </tr>
-    <tr>
-      <td>Saad112</td>
-      <td>Kazi Saad</td>
-      <td>Ayshik112</td>
-      <td>February</td>
-      <td>Very good</td>
-      <td>Excellent</td>
-      <td>Excellent</td>
-      <td>Best.I want to continue study.</td>
-      <td>10</td>
-    </tr>
-    <tr>
-     <td>Saad112</td>
-      <td>Shohan Khan</td>
-      <td>Ayshik112</td>
-      <td>February</td>
-      <td>good</td>
-      <td>Excellent</td>
-      <td>Excellent</td>
-      <td>Good.I want to continue study.</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>Shopnil2</td>
-      <td>Swopnil Mahmud</td>
-      <td>Ayshik112</td>
-      <td>May</td>
-      <td>Very good</td>
-      <td>Excellent</td>
-      <td>Excellent</td>
-      <td>He is a good teacher.</td>
-      <td>9</td>
-    </tr>
-    <tr>
-     <td>Rifa444</td>
-      <td>Rifa Khan</td>
-      <td>Shuvo312</td>
-      <td>May</td>
-      <td>Very Bad</td>
-      <td>Bad</td>
-      <td>Bad</td>
-      <td>I dont want to continue study.</td>
-      <td>1</td>
-  </tr>
+
+    </thead>
+
+
+    <tbody>
+      <?php
+        foreach($products as $product)
+        {
+          echo "<tr>";
+            echo "<td>".$product["Sl"]."</td>";
+              echo "<td>".$product["SenderId"]."</td>";
+            echo "<td>".$product["Type"]."</td>";
+
+              echo "<td>".$product["Date&Time"]."</td>";
+            echo "<td>".$product["Message"]."</td>";
+
+          echo "</tr>";
+        }
+      ?>
+
+    </tbody>
+
+
+
+
+
+
+
+
   </table>
 
+  <center><h2>To Id :</h2><input type="text" name="fname" id="fname" disabled><br><br></center>
+
+   <!--<button class="button">Send</button><br><br>-->
+   <div class="container">
+     <form action="/action_page.php">
+     <div class="row">
+
+
+       <div class="col-25">
+        <h2> <label for="subject">Massage Box:</label><h2>
+       </div>
+       <div class="col-75">
+         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;"></textarea>
+       </div>
+     </div>
+     <div class="row">
+       <input type="submit" value="Submit">
+     </div>
+     </form>
+   </div>
 <script>
 
                var table = document.getElementById('table');
@@ -180,7 +244,7 @@ table tr:not(:first-child){
                    table.rows[i].onclick = function()
                    {
                         //rIndex = this.rowIndex;
-                        document.getElementById("fname").value = this.cells[2].innerHTML;
+                        document.getElementById("fname").value = this.cells[1].innerHTML;
 
                    };
                }

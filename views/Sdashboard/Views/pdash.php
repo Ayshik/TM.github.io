@@ -634,14 +634,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" name="username" value="<?php echo $product["UserName"]?>" disabled>
+                                    <input type="text" class="form-control" name="uid" value="<?php echo $product["UserName"]?>" disabled>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" name="name" value="<?php echo $product["Name"]?>" disabled>
+                                    <input type="text" class="form-control" name="fname" value="<?php echo $product["Name"]?>" disabled>
                                 </div>
                             </div>
 
@@ -669,14 +669,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" name="email" value="<?php echo $product["Email"]?>" disabled>
+                                    <input type="email"  name="email" class="form-control" name="email" value="<?php echo $product["Email"]?>" disabled>
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone Number</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" name="phone" value="<?php echo $product["Phone"]?>">
+                                    <input type="text" name="phone" class="form-control" name="phone" value="<?php echo $product["Phone"]?>">
 
                                 </div>
                             </div>
@@ -685,7 +685,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" name="address" value="<?php echo $product["Address"]?>">
+                                    <input type="text" name="address" class="form-control" name="address" value="<?php echo $product["Address"]?>">
 
                                 </div>
                             </div>
@@ -701,14 +701,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" name="mpass" placeholder="<?php echo $product["Password"]?>">
+                                    <input type="password" name="mpass" class="form-control" name="mpass" value="<?php echo $product["Password"]?>">
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" name="npass" placeholder="Enter a new password">
+                                    <input type="password" name="npass" class="form-control" name="npass" placeholder="Enter a new password">
 
                                 </div>
                             </div>
@@ -717,7 +717,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Confirm Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" class="form-control" name="cpss" placeholder="Enter new password again">
+                                    <input type="password" name="cpass" class="form-control" name="cpss" placeholder="Enter new password again">
 
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 <?php
-
+  $var;
   require_once '../models/db_connect.php';
   if(isset($_POST["add_picture"]))
   {
@@ -34,9 +34,15 @@
 
   function getdetails()
   {
+    session_start();
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+      
+    }
 
 
-    $query="SELECT * FROM student WHERE UserName='Ayshik111'";
+    $query="SELECT * FROM student WHERE UserName='$var'";
     $product=get($query);
     return $product[0];
 
@@ -44,10 +50,18 @@
 
   function Profileupdate()
   {
+      session_start();
+
+      if(!empty('$_SESSION["loggedinuser"]')){
+        $var=$_SESSION["loggedinuser"];
+
+      }
+
+  if(isset($_POST["mpass"]) || isset($_POST["npass"]) || isset($_POST["cpass"])){
+
+
 
     $institute=$_POST["institute"];
-
-    $email=$_POST["email"];
     $phone=$_POST["phone"];
     $address=$_POST["address"];
     $password=$_POST["mpass"];
@@ -55,11 +69,11 @@
         $cpass=$_POST["cpass"];
 
 
-    $query="UPDATE `student` SET 'Institute'=$institute,'Phone'=$phone,'Address'=$address,'Password'=$password WHERE `UserName`='Ayshik111'";
+     $query="UPDATE student SET Institute='$institute',Phone='$phone',Address='$address',Password='$cpass' WHERE UserName='$var'";
     execute($query);
 
 
   }
-
+}
 
 ?>

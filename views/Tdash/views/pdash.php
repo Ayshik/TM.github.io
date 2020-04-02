@@ -701,14 +701,14 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" name="mpss" class="form-control" placeholder="<?php echo $product["Password"]?>">
+                                    <input type="password" name="mpass" class="form-control" placeholder="Enter recent password" value="<?php echo $product["Password"]?>">
 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" name="npss" class="form-control" placeholder="Enter a new password">
+                                    <input type="password" name="npass" class="form-control" placeholder="Enter a new password">
 
                                 </div>
                             </div>
@@ -717,7 +717,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Confirm Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" name="cpss" class="form-control" placeholder="Enter new password again">
+                                    <input type="password" name="cpass" class="form-control" placeholder="Enter new password again">
 
                                 </div>
                             </div>
