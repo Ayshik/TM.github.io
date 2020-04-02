@@ -435,7 +435,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                   <form class="modal-content animate" action="" method="post">
                   <div class="imgcontainer">
                        <span onclick="document.getElementById('spop').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                       <img src="ava.png" alt="Student" class="avatar">
+                       <img src="pic/ava.png" alt="Student" class="avatar">
                        <h1 style="text-align:center " >New Student </h1>
                      </div>
 
@@ -473,7 +473,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                    	   <form class="modal-content animate" action="" method="post">
                                	    <div class="imgcontainer">
                                          <span onclick="document.getElementById('tpop').style.display='none'" class="close" title="Close PopUp">&times;</span>
-                                         <img src="ava.png" alt="Student" class="avatar">
+                                         <img src="pic/ava.png" alt="Student" class="avatar">
                                          <h1 style="text-align:center " >New Teacher Signup</h1>
                                    </div>
                                    <div class="container">
@@ -505,7 +505,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                      <div class="imgcontainer">
                        <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close">&times;</span>
-                       <img src="ava.png" alt="Student" class="avatar">
+                       <img src="pic/ava.png" alt="Student" class="avatar">
                        <h1 style="text-align:center " >Login</h1>
                      </div>
 
