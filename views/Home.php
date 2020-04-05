@@ -5,7 +5,7 @@
 
 
   $Sfirstname=$Slastname=$Semail=$Sgen=$Spass= $sql="";
-  if($_SERVER["REQUEST_METHOD"]=="POST"){
+  if(isset($_POST['studentsignup'])){
     if(!empty($_POST['fname'])){
       $Sfirstname = mysqli_real_escape_string($conn, $_POST['fname']);
     }
@@ -28,8 +28,10 @@
     }
     $sql = "INSERT INTO student (UserName,Name,Email,Password,Gender)
               VALUES ('$Slastname','$Sfirstname','$Semail','$Spass','$Sgen');";
-
+              $sql2 = "INSERT INTO notification (Nmessage)
+                        VALUES ('$Slastname has joined as a Student!!');";
       mysqli_query($conn, $sql);
+        mysqli_query($conn, $sql2);
   }
 
   ?>
@@ -44,7 +46,7 @@
 //for database
 include ('Tutiondb.php');
 $tfirstname=$tlastname=$temail=$tgen=$tpass= $tsql="";
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+if(isset($_POST['teachersignup'])){
   if(!empty($_POST['tfname'])){
     $tfirstname = mysqli_real_escape_string($conn, $_POST['tfname']);
   }
@@ -68,8 +70,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
   $tsql = "INSERT INTO teacher (UserName,Name,Email,Password,Gender)
             VALUES ('$tlastname','$tfirstname','$temail','$tpass','$tgen');";
+    $tsql2 = "INSERT INTO notification (Nmessage)
+                      VALUES ('$tlastname has joined as a Teacher!!');";
 
     mysqli_query($conn, $tsql);
+      mysqli_query($conn, $tsql2);
 }
 
 ?>
@@ -437,7 +442,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                   <div class="imgcontainer">
                        <span onclick="document.getElementById('spop').style.display='none'" class="close" title="Close PopUp">&times;</span>
                        <img src="pic/ava.png" alt="Student" class="avatar">
-                       <h1 style="text-align:center " >New Student </h1>
+                       <h1 style="text-align:center " >New Student Signup</h1>
                      </div>
 
                      <div class="container">
@@ -458,7 +463,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                        </td>
                        <center><input type="checkbox" style="margin:20px 10px;" required> I accept all terms and conditions </center>
-                       <center> <button type="submit" value="submit">Signup</button>	</center>
+                       <center> <button type="submit" name="studentsignup" value="submit">Signup</button>	</center>
                      </div>
 
 
@@ -491,7 +496,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                                                      </center>
                                                 </td>
                                                       <center><input type="checkbox" style="margin:20px 10px;" required> I accept all terms and conditions </center>
-                                                      <center> <button type="submit" value="submit">Signup</button>	</center>
+                                                      <center> <button type="submit" name="teachersignup" value="submit">Signup</button>	</center>
                                    </div>
                            </form>
                  </div>
