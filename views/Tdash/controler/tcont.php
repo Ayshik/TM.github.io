@@ -58,6 +58,37 @@
 
   }
 
+  function getpic()
+  {
+
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+
+
+
+
+    $query="SELECT Picture FROM teacher WHERE UserName='$var'";
+    $pro=get($query);
+    return $pro[0];
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   function Profileupdate()
   {
     session_start();

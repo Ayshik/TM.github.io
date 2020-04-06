@@ -49,9 +49,28 @@
     }
 
 
+
+
     $query="SELECT * FROM student WHERE UserName='$var'";
     $product=get($query);
     return $product[0];
+
+  }
+  function getpic()
+  {
+
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+
+
+
+
+    $query="SELECT Picture FROM student WHERE UserName='$var'";
+    $pro=get($query);
+    return $pro[0];
 
   }
 
