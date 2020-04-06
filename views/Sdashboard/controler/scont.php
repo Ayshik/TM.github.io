@@ -18,6 +18,13 @@
 
   function insertPicture()
   {
+    {
+      session_start();
+
+      if(!empty('$_SESSION["loggedinuser"]')){
+        $var=$_SESSION["loggedinuser"];
+
+      }
 
      //file upload
         $target_dir="../storage/product_image/";
@@ -26,9 +33,9 @@
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     //echo $target_file;
-    $query="UPDATE `student` SET `Picture`='$target_file' WHERE `UserName`='Ayshik111'";
+    $query="UPDATE `student` SET `Picture`='$target_file' WHERE `UserName`='$var'";
     execute($query);
-
+}
 
   }
 
@@ -38,7 +45,7 @@
 
     if(!empty('$_SESSION["loggedinuser"]')){
       $var=$_SESSION["loggedinuser"];
-      
+
     }
 
 
