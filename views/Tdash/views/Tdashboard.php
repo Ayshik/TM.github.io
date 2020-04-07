@@ -42,29 +42,7 @@ body{
 	font-family:consolas;
 	color:white;
 }
-.footer{
-	position:fixed;
-	left:0;
-	bottom:0;
-	width: 100%;
-	background-color: black;
-	color: white;
-	text-align: center;
-	font-family:consolas;
 
-}
-.header{
-	position:relative;
-	left:0;
-	top:0;
-	width: 100%;
-	background-color: black;
-	color: white;
-	text-align: center;
-	font-family:consolas;
-	padding:5px;
-
-}
 .center{
 	margin: 0 auto;
     width:50% ;
@@ -89,12 +67,13 @@ body{
 }
 
 .card-product{
+	display: inline-block;
 	border:1px solid;
 	width:200px;
 	height:349px;
 	margin-left:10px;
-	margin-right:10px;
-	margin-top:10px;
+	margin-right:29px;
+	margin-top:32px;
 	border-radius: 15px;
 	text-align: center;
 	padding:5px;
