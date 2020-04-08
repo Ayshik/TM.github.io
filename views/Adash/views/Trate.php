@@ -105,7 +105,7 @@ table tr:not(:first-child){
 <center><h1>Rate Teacher</h1><br><br></center>
 <form method="post" action="../controler/acont.php" enctype="multipart/form-data" class="form-horizontal form-material">
 <center><h2>Teacher Id:</h2>
-	<input type="text" name="fname" id="fnameid"  disabled><br><br></center>
+	<input type="text" name="fname" id="fnameid" readonly><br><br></center>
 
 
 <div>

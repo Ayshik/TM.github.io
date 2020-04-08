@@ -22,7 +22,7 @@
 <html lang="en">
 <head>
 
-    <title>Website Survey</title>
+    <title>TEACHER Survey</title>
 
     <style type="text/css">
 		// variables

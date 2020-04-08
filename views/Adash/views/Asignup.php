@@ -1,5 +1,11 @@
 
+<?php
 
+	require '../controler/acont.php';
+
+
+
+?>
 
 
 
@@ -9,13 +15,16 @@
 	<meta charset="UTF-8">
 	<title> Admin Registration Form</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  
-  
-  
-  
+
+
+
+
   <style>
-  
+
   *{
+		background-color: transparent;
+    border: none;
+		    cursor: pointer;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -116,20 +125,20 @@ body{
 :-ms-input-placeholder { /* IE 10+ */
   color: #1d2120;
 }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   </style>
-  
-  
+
+
 </head>
 <body>
 
@@ -137,6 +146,7 @@ body{
   <div class="title">
     Admin Registration
   </div>
+<form	method="post" action="../controler/acont.php" enctype="multipart/form-data">
   <div class="social_media">
     <div class="item">
       <i class="fab fa-facebook-f"></i>
@@ -148,25 +158,30 @@ body{
       <i class="fab fa-google-plus-g"></i>
     </div>
   </div>
-  
+
   <div class="form">
+		<div class="input_field">
+			<input type="text" name="uname" placeholder="UserName" class="input">
+			<i class="fas fa-user"></i>
+		</div>
     <div class="input_field">
-      <input type="text" placeholder="Name" class="input">
+      <input type="text" name="name" placeholder="Name" class="input">
       <i class="fas fa-user"></i>
     </div>
     <div class="input_field">
-      <input type="text" placeholder="Email" class="input">
+      <input type="text" name="email" placeholder="Email" class="input">
       <i class="far fa-envelope"></i>
     </div>
     <div class="input_field">
-      <input type="password" placeholder="Password" class="input">
+      <input type="password" name="pass" placeholder="Password" class="input">
       <i class="fas fa-lock"></i>
     </div>
-    <div class="btn">
-      <a href="#">Register</a>
+    <div class="btn" >
+    <input type="submit" name="insertadmin" value="Signup">
     </div>
   </div>
-</div>	
-	
+</form>
+</div>
+
 </body>
 </html>

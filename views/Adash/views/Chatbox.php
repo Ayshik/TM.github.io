@@ -172,7 +172,7 @@ input[type=submit]:hover {
 
 <center><h1>InBox</h1><br><br></center>
 
-
+<form  method="post" action="../controler/acont.php" enctype="multipart/form-data">
 
 
   <table id="table" border="1">
@@ -180,7 +180,7 @@ input[type=submit]:hover {
       <th>SL.</th>
         <th>Sender Id</th>
       <th>From</th>
-      
+
       <th>Date & Time</th>
       <th>Massage</th>
 
@@ -205,36 +205,28 @@ input[type=submit]:hover {
       ?>
 
     </tbody>
-
-
-
-
-
-
-
-
   </table>
-
-  <center><h2>To Id :</h2><input type="text" name="fname" id="fname" disabled><br><br></center>
-
-   <!--<button class="button">Send</button><br><br>-->
-   <div class="container">
-     <form action="/action_page.php">
-     <div class="row">
+	<center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" readonly><br><br></center>
 
 
-       <div class="col-25">
-        <h2> <label for="subject">Massage Box:</label><h2>
-       </div>
-       <div class="col-75">
-         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;"></textarea>
-       </div>
-     </div>
-     <div class="row">
-       <input type="submit" value="Submit">
-     </div>
-     </form>
-   </div>
+	 <div class="container">
+
+		 <div class="row">
+
+
+			 <div class="col-25">
+				<h2> <label for="subject">Massage Box:</label><h2>
+			 </div>
+			 <div class="col-75">
+				 <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;"></textarea>
+			 </div>
+		 </div>
+		 <div class="row">
+			 <input type="submit" name="inserttext" value="Submit">
+		 </div>
+
+	 </div>
+  </form>
 <script>
 
                var table = document.getElementById('table');
@@ -243,7 +235,7 @@ input[type=submit]:hover {
                {
                    table.rows[i].onclick = function()
                    {
-                        //rIndex = this.rowIndex;
+
                         document.getElementById("fname").value = this.cells[1].innerHTML;
 
                    };

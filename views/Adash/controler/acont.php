@@ -13,6 +13,14 @@
   {
     updatetsq();
   }
+  else if(isset($_POST["inserttext"]))
+  {
+    insertMessage();
+  }
+  else if(isset($_POST["insertadmin"]))
+  {
+    insertadmin();
+  }
 	function getainbox()
 	{
 		$query ="SELECT * FROM ainbox";
@@ -51,9 +59,9 @@
   }
   function insertrating()
   {
-      if(isset($_POST["rate"]) && isset($_POST["fname"])){
+      if(isset($_POST["fname"])){
     $name=$_POST["rate"];
-      $fname=$_GET["fname"];
+      $fname=$_POST["fname"];
 
 
     $query="UPDATE teacher SET Rating='$name' WHERE UserName='$fname'";
@@ -101,7 +109,6 @@ function gettsques()
   return $products[0];
 }
 
-
 function updatetsq()
 {
 
@@ -121,7 +128,37 @@ header("Location:../views/Ssurvey.php");
 
 }
 
+function insertMessage()
+{
+if(isset($_POST["fnamee"])){
 
+
+  $fname=$_POST["fnamee"];
+  $sub=$_POST["subject"];
+
+
+  $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('ADMIN','$fname','$sub')";
+  echo $query;
+  execute($query);
+
+}
+}
+
+function insertadmin()
+{
+
+
+  $auname=$_POST["uname"];
+  $aname=$_POST["name"];
+  $aemail=$_POST["email"];
+    $apass=$_POST["pass"];
+
+
+  $query="INSERT INTO `admin`VALUES ('$auname','$aname','$aemail','$apass')";
+  echo $query;
+  execute($query);
+
+}
 
 
 ?>
