@@ -76,19 +76,6 @@
 
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   function Profileupdate()
   {
     session_start();
@@ -118,7 +105,13 @@
   }
 
 
+  function getwebquestion()
+	{
 
+		$query ="SELECT * FROM wsques where Action='ADMIN'";
+		$products = get($query);
+		return $products[0];
+	}
 
 
 

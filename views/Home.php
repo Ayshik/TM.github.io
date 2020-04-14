@@ -26,10 +26,10 @@
       $Sgen = mysqli_real_escape_string($conn, $_POST['ugen']);
 
     }
-    $sql = "INSERT INTO student (UserName,Name,Email,Password,Gender)
-              VALUES ('$Slastname','$Sfirstname','$Semail','$Spass','$Sgen');";
-              $sql2 = "INSERT INTO notification (Nmessage)
-                        VALUES ('$Slastname has joined as a Student!!');";
+    $sql = "INSERT INTO student (UserName,Name,Email,Password,Gender,Picture)
+              VALUES ('$Slastname','$Sfirstname','$Semail','$Spass','$Sgen','../storage/product_image/ava.png');";
+              $sql2 = "INSERT INTO notification (Nmessage,Status)
+                        VALUES ('$Slastname has joined as a Student!!','unread');";
       mysqli_query($conn, $sql);
         mysqli_query($conn, $sql2);
   }
@@ -68,10 +68,10 @@ if(isset($_POST['teachersignup'])){
 
   }
 
-  $tsql = "INSERT INTO teacher (UserName,Name,Email,Password,Gender)
-            VALUES ('$tlastname','$tfirstname','$temail','$tpass','$tgen');";
-    $tsql2 = "INSERT INTO notification (Nmessage)
-                      VALUES ('$tlastname has joined as a Teacher!!');";
+  $tsql = "INSERT INTO teacher (UserName,Name,Email,Password,Gender,Picture)
+            VALUES ('$tlastname','$tfirstname','$temail','$tpass','$tgen','../storage/product_image/ava.png');";
+    $tsql2 = "INSERT INTO notification (Nmessage,Status)
+                      VALUES ('$tlastname has joined as a Teacher!!','unread');";
 
     mysqli_query($conn, $tsql);
       mysqli_query($conn, $tsql2);
@@ -130,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     else
     {
-      echo "invalid";
+
     }
   }
 
@@ -189,7 +189,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     else
     {
-      echo "invalid";
+
     }
   }
 
@@ -201,6 +201,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
 <?php
+$eror= "top";
+
 $uname="";
 $err_uname="";
 $psw="";
@@ -246,7 +248,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     else
     {
-      echo "invalid";
+      $eror = "error";
+
+
+      echo '<script>
+      console.log("hi");
+
+      </script>';
+
     }
   }
 
@@ -263,6 +272,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
           <link href="owl.carousel.css" rel="stylesheet">
           <link href="style1.css" rel="stylesheet">
           <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
           <title>TUTION MEDIA</title>
           <style>
@@ -660,5 +670,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                             </div>
                         </div>
                     </footer>
+                    <script>
+                      var er = "no";
+                      er = "<?php echo $eror; ?>";
+                      console.log(er);
+                      if(er=="error"){
+                        swal({
+                        title: "SORRY!",
+                        text: "Please check your Username & Password!",
+                        icon: "error",
+                        button: "OK",
+                      });
+                      er ="no";
+                      }
+                    </script>
   </body>
 </html>

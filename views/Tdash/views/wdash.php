@@ -1,3 +1,16 @@
+<?php
+	  require_once ('../controler/tcont.php');
+
+
+	   $product=getwebquestion();
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -604,14 +617,14 @@ color: #a2a6af
 
                 <div class="content-panel">
                    <center> <h1 class="title"><b>Website Survey</b></h1></center></br></br>
-                    <form class="form-horizontal">
+                    <form method="post" action="../controler/tcont.php"  enctype="multipart/form-data" class="form-horizontal">
                         <fieldset class="fieldset">
 
 
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label"><b>Question<sub>1:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
+                                    <input type="text"   class="form-control" value="<?php echo $product["Question1"]?>" disabled>
                                 </div>
                             </div>
 
@@ -625,7 +638,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>2:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
+                                    <input type="text" class="form-control" value="<?php echo $product["Question2"]?>" disabled>
 
                                 </div>
                             </div>
@@ -644,7 +657,7 @@ color: #a2a6af
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>3:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="" disabled>
+                                    <input type="email" class="form-control" value="<?php echo $product["Question3"]?>" disabled>
 
                                 </div>
                             </div>
@@ -660,7 +673,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>4:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
+                                    <input type="text" class="form-control" value="<?php echo $product["Question4"]?>" disabled>
 
                                 </div>
                             </div>
@@ -681,7 +694,7 @@ color: #a2a6af
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>5:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
+                                    <input type="text" class="form-control" value="<?php echo $product["Question5"]?> " disabled>
 
                                 </div>
                             </div>

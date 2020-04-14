@@ -1,4 +1,10 @@
+<?php
 
+	require '../controler/scont.php';
+	$products = getmessage();
+
+
+?>
 
 
 
@@ -166,41 +172,48 @@ input[type=submit]:hover {
 
 <center><h1>Chat Box</h1><br><br></center>
 
-
+<form  method="post" action="../controler/scont.php" enctype="multipart/form-data">
 
 
   <table id="table" border="1">
-    <tr>
-      <th>From</th>
+  <thead>
+
+
+    <th>From</th>
       <th>Sender Id</th>
-      <th>Massage</th>
+  <th>Massage</th>
+    <th>Date & Time</th>
 
 
-    </tr>
-    <tr>
-      <td>Student</td>
-      <td>Ayshik112</td>
-      <td>I want to continue study.</td>
 
-    </tr>
-    <tr>
-      <td>Teacher</td>
-      <td>saad223</td>
-      <td>I Dont want to continue study.</td>
-    </tr>
-    <tr>
-      <td>Student</td>
-      <td>Sopnil</td>
-      <td>I want a teacher.</td>
-    </tr>
+  </thead>
 
+
+  <tbody>
+    <?php
+      foreach($products as $product)
+      {
+        echo "<tr>";
+
+
+          echo "<td>Teacher</td>";
+          echo "<td>".$product["Sender"]."</td>";
+  echo "<td>".$product["Message"]."</td>";
+            echo "<td>".$product["Date&Time"]."</td>";
+
+
+        echo "</tr>";
+      }
+    ?>
+
+  </tbody>
   </table>
 
-  <center><h2>To Id :</h2><input type="text" name="fname" id="fname" disabled><br><br></center>
+
 
    <!--<button class="button">Send</button><br><br>-->
    <div class="container">
-     <form action="/action_page.php">
+<center><h2>To Id :</h2><input type="text" name="fname" id="fname" required><br><br></center>
      <div class="row">
 
 
@@ -208,14 +221,15 @@ input[type=submit]:hover {
         <h2> <label for="subject">Massage Box:</label><h2>
        </div>
        <div class="col-75">
-         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;"></textarea>
+         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;" required></textarea>
        </div>
      </div>
      <div class="row">
-       <input type="submit" value="Submit">
+       <input type="submit" name="inserttext" value="Submit">
      </div>
-     </form>
+
    </div>
+    </form>
 <script>
 
                var table = document.getElementById('table');
@@ -224,7 +238,7 @@ input[type=submit]:hover {
                {
                    table.rows[i].onclick = function()
                    {
-                        //rIndex = this.rowIndex;
+
                         document.getElementById("fname").value = this.cells[1].innerHTML;
 
                    };

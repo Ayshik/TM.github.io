@@ -206,11 +206,11 @@ input[type=submit]:hover {
 
     </tbody>
   </table>
-	<center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" readonly><br><br></center>
+
 
 
 	 <div class="container">
-
+	<center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" required ><br><br></center>
 		 <div class="row">
 
 
@@ -218,7 +218,7 @@ input[type=submit]:hover {
 				<h2> <label for="subject">Massage Box:</label><h2>
 			 </div>
 			 <div class="col-75">
-				 <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;"></textarea>
+				 <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;" required></textarea>
 			 </div>
 		 </div>
 		 <div class="row">

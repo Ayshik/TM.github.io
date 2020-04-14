@@ -9,12 +9,34 @@
 	{
 		Profileupdate();
 	}
+
+  else if(isset($_POST["inserttext"]))
+  {
+    insertMessage();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   function getstudent()
   {
     $query ="SELECT * FROM student";
     $products = get($query);
     return $products;
   }
+
 
   function insertPicture()
   {
@@ -101,5 +123,47 @@
 
   }
 }
+
+function getmessage()
+{
+
+    session_start();
+  if(!empty('$_SESSION["loggedinuser"]')){
+    $var=$_SESSION["loggedinuser"];
+
+  }
+
+  $query ="SELECT * FROM chatbox where Receiver='$var'";
+  $products = get($query);
+  return $products;
+}
+
+
+function insertMessage()
+{
+
+  session_start();
+if(!empty('$_SESSION["loggedinuser"]')){
+$var=$_SESSION["loggedinuser"];
+
+}
+if(isset($_POST["fname"])){
+
+
+  $fname=$_POST["fname"];
+  $sub=$_POST["subject"];
+
+
+  $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('$var','$fname','$sub')";
+  echo $query;
+  execute($query);
+
+}
+}
+
+
+
+
+
 
 ?>

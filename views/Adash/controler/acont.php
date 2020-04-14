@@ -160,5 +160,27 @@ function insertadmin()
 
 }
 
+function getunread()
+{
+
+  $query ="SELECT count(Sl) AS total FROM notification WHERE Status='unread'";
+  $products = get($query);
+
+  return $products;
+  $unread=$products["total"];
+
+
+}
+
+function getnoti()
+{
+
+  $query ="SELECT * from `notification` WHERE Status='unread' order by `Time&Date` DESC";
+  $products = get($query);
+  return $products;
+}
+
+
+
 
 ?>
