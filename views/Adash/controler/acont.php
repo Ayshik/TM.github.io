@@ -21,6 +21,9 @@
   {
     insertadmin();
   }
+
+  
+
 	function getainbox()
 	{
 		$query ="SELECT * FROM ainbox";
@@ -97,7 +100,7 @@ function updatewsq()
   execute($query);
 
 
-header("Location:../views/Wsurvey.php");
+//header("Location:../views/Wsurvey.php");
 
 }
 
@@ -179,7 +182,6 @@ function getnoti()
   $products = get($query);
   return $products;
 }
-
 
 
 
