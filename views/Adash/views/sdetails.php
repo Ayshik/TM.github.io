@@ -8,6 +8,26 @@ include('Dashboard/navbar.php');
 require '../controler/acont.php';
 $products = gettstudent();
 
+
+$noti = getnoti();
+
+
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tm";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
+  $result=mysqli_query($conn,$query);
+  $values=mysqli_fetch_assoc($result);
+  $unread=$values["total"];
+
+}
 ?>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -60,50 +80,51 @@ $products = gettstudent();
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <span class="badge badge-danger badge-counter"><?php echo $unread ; ?></span>
               </a>
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"  aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
+
+                <?php
+                  foreach($noti as $product)
+
+                  {
+                  ?>
+
                 <a class="dropdown-item d-flex align-items-center" href="#">
+
+
                   <div class="mr-3">
                     <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
+                      <i class="fas fa-user-plus text-white"></i>
                     </div>
                   </div>
+
                   <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">Ayshik Khan Started a New Tution.</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">Kazi Saad signed up as a student!!!</div>
+                    <div class="small text-gray-500"><?php echo $product["Time&Date"]?></div>
+                    <span class="font-weight-bold"><?php echo $product["Nmessage"]?></span>
+
+
+
 
                   </div>
+
+
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Report:Kazi saad has sent you a mail.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+
+                <?php
+                     }
+
+                     ?>
+
+
+                <a class="dropdown-item text-center small text-gray-500" href="../controler/resetnoti.php">Seen All</a>
               </div>
             </li>
 
@@ -151,7 +172,7 @@ $products = gettstudent();
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <img class="rounded-circle" src="https://photos.app.goo.gl/VLoVwg3z8rdMy14C6" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div>
@@ -168,7 +189,7 @@ $products = gettstudent();
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">AD</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayshik Khan</span>
                 <img class="img-profile rounded-circle" src="https://photos.app.goo.gl/VLoVwg3z8rdMy14C6">
               </a>
               <!-- Dropdown - User Information -->
