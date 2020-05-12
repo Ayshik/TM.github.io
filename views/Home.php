@@ -32,11 +32,7 @@
                         VALUES ('$Slastname has joined as a Student!!','unread');";
       mysqli_query($conn, $sql);
         mysqli_query($conn, $sql2);
-
-
   }
-
-
 
   ?>
 
@@ -79,8 +75,6 @@ if(isset($_POST['teachersignup'])){
 
     mysqli_query($conn, $tsql);
       mysqli_query($conn, $tsql2);
-
-      $signupt="ok";
 }
 
 ?>
@@ -534,8 +528,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                      <div class="container">
 
 
-                 	 <input type="text" placeholder="Enter Username" name="uname" title="Please Enter your UserName" required></br>
-                       <input type="password" placeholder="Enter Password" name="psw"  title="Please Enter your Password" required> </br>
+                 	 <input type="text" placeholder="Enter Username" name="uname" pattern="[A-Z]+[A-Za-z.-].{2,}" title="EXAMPLE: Ayshik12 OR Ayshik" required></br>
+                       <input type="password" placeholder="Enter Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="EXAMPLE: @#Ayshik123 and minimum lenth 8" required> </br>
 
 
                       <!--<input type="text" placeholder="Enter Username" name="uname" value="<?php// echo $vname;?>">
@@ -689,19 +683,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                       });
                       er ="no";
                       }
-                    /*  var st = "no";
-                      st = "<?php echo $signupt; ?>";
-                      console.log(st);
-                      if(st=="ok"){
-                        swal({
-                        title: "Congratulation!",
-                        text: "You have REGISTERED as a Teacher!",
-                        icon: "success",
-                        button: "OK",
-                      });
-
-                      st="no";
-                    }*/
                     </script>
   </body>
 </html>

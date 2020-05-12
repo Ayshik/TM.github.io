@@ -21,18 +21,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
   function getstudent()
   {
-    $query ="SELECT * FROM student";
+    $query ="SELECT * FROM teacher";
     $products = get($query);
     return $products;
   }

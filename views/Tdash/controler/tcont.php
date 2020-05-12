@@ -13,7 +13,7 @@
 	function getteacher()
 	{
 
-		$query ="SELECT * FROM teacher";
+		$query ="SELECT * FROM student";
 		$products = get($query);
 		return $products;
 	}
