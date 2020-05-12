@@ -23,7 +23,7 @@
 
   function getstudent()
   {
-    $query ="SELECT * FROM teacher";
+    $query ="SELECT * FROM student";
     $products = get($query);
     return $products;
   }
@@ -52,7 +52,7 @@
 
   }
 
-  function getdetails()
+  function getdetails() 
   {
     session_start();
 
@@ -64,7 +64,7 @@
 
 
 
-    $query="SELECT * FROM student WHERE UserName='$var'";
+     $query="SELECT * FROM student WHERE UserName='$var'";
     $product=get($query);
     return $product[0];
 

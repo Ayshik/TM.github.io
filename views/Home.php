@@ -124,7 +124,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if(mysqli_num_rows($result) > 0)
     {
       $row=mysqli_fetch_assoc($result);
-      $_SESSION["loggedinuser"]=$row["UserName"];
+      $_SESSION["loggedinuser"]=$row["UserId"];
 
       header("Location:Adash/Dashboard.php");
     }

@@ -1,5 +1,5 @@
 <?php
-
+$var;
   require_once '../models/db_connect.php';
   if(isset($_POST["add_Rate"]))
   {
@@ -22,7 +22,7 @@
     insertadmin();
   }
 
-  
+   
 
 	function getainbox()
 	{
@@ -30,6 +30,8 @@
 		$products = get($query);
 		return $products;
 	}
+
+ 
 
 
   function gettcomments()
