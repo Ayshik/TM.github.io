@@ -40,7 +40,6 @@ padding:10px;
 
 .m1 ul li:hover .menu-Reg ul li{
 	padding:14.6px;
-
   background: transparent;
 	border-radius:0;
 	text-align:center;
@@ -77,8 +76,9 @@ padding:26.4px;
   color:orange;
 }
 .pic{
-  border:15px solid Mediumseagreen;
-  margin:30px;
+  border:14px solid Mediumseagreen;
+  margin:10px;
+
 }
 
 
