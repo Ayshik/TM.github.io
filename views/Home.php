@@ -63,8 +63,8 @@ if(isset($_POST['teachersignup'])){
     $tpass = mysqli_real_escape_string($conn, $_POST['tpass']);
 
   }
-  if(!empty($_POST['tugen'])){
-    $tgen = mysqli_real_escape_string($conn, $_POST['tugen']);
+  if(!empty($_POST['gen'])){
+    $tgen = mysqli_real_escape_string($conn, $_POST['gen']);
 
   }
 
@@ -466,7 +466,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                           <input type="radio" id="male" name="ugen" value="male">
                                  <label for="male">Male</label>
-                                 <input type="radio" id="female" name="gen" value="female" >
+                                 <input type="radio" id="female" name="ugen" value="female" >
                                  <label for="female">Female</label></center>
 
 
@@ -499,7 +499,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                                                <input type="password" placeholder="Enter Password" name="tpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="EXAMPLE: @#Ayshik123 and minimum lenth 8" required> </br>
                                                <td>
                                                      <center>Gender:
-                                                            <input type="radio" id="male" name="tugen" value="male">
+                                                            <input type="radio" id="male" name="gen" value="male">
                                                              <label for="male">Male</label>
                                                              <input type="radio" id="female" name="gen" value="female">
                                                              <label for="female">Female</label>
