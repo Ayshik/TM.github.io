@@ -178,9 +178,11 @@ function insertreportadmin()
 
 
   $query="INSERT INTO ainbox(Type,SenderId,Subject,Message,Status) VALUES ('Student','$var','$aname','$aemail','unread')";
+  $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','ADMIN','$aemail')";
 
   execute($query);
-  echo $query;
+  execute($query2);
+
 header("Location:../Views/contact Admin.php");
 }
 

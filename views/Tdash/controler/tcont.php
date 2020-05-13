@@ -15,7 +15,10 @@ $var2;
     insertMessage();
 
   }
-
+  else if(isset($_POST["insertreport"]))
+  {
+    insertreportadmin();
+  }
 
 
 	function getteacher()
@@ -164,6 +167,35 @@ $var2;
     execute($query);
     $_SESSION["id"]=$fname;
   header("Location:../views/messagebox.php");
+                            }
+
   }
+
+
+
+  function insertreportadmin()
+  { session_start();
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+
+    $aname=$_POST["sub"];
+    $aemail=$_POST["msg"];
+
+
+    $query="INSERT INTO ainbox(Type,SenderId,Subject,Message,Status) VALUES ('Teacher','$var','$aname','$aemail','unread')";
+    $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','ADMIN','$aemail')";
+
+    execute($query);
+    execute($query2);
+
+  header("Location:../Views/contact Admin.php");
   }
+
+
+
+
+
 ?>

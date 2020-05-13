@@ -91,7 +91,7 @@ body{
 <body>
 
 <div class="wrapper">
-  <h2>Contact Teacher</h2>
+  <h2>Contact Student</h2>
   <div id="error_message"></div>
   <form id="myform" onsubmit="return validate();">
     <div class="input_field">
@@ -136,17 +136,17 @@ function validate(){
   var text;
 
   if(subject.length < 10){
-    text = "Please Enter Correct Subject";
+    text = "Please Write your problem Subject correctly";
     error_message.innerHTML = text;
     return false;
   }
 
-  if(message.length <= 140){
-    text = "Please Enter More Than 140 Characters";
+  if(message.length <= 40){
+    text = "Please Write your problem in details";
     error_message.innerHTML = text;
     return false;
   }
-  alert("Form Submitted Successfully!");
+  alert("Your Report has been sent");
   return true;
 }
 </script>

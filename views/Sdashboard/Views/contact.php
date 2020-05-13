@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Contact</title>
-	<link rel="stylesheet" href="styles.css">
-	<script src="scripts.js"></script>
+
 </head>
 
 <style>
@@ -97,11 +96,11 @@ body{
   <form id="myform" onsubmit="return validate();">
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Sender" id="name" >
+        <input type="text" placeholder="Sender" id="" >
     </div>
     <div class="input_field">
 			<label for="subject">To:</label>
-        <input type="text" placeholder="Receiver" id="subject"><br><br>
+        <input type="text" placeholder="Receiver" id=""><br><br>
     </div>
 		<div class="input_field">
 			<label for="subject">Subject:</label>
@@ -118,5 +117,36 @@ body{
   </form>
 </div>
 
+
+
 </body>
+
 </html>
+<script>
+
+function validate(){
+
+  var subject = document.getElementById("subject").value;
+  var message = document.getElementById("message").value;
+
+  var error_message = document.getElementById("error_message");
+
+  error_message.style.padding = "10px";
+
+  var text;
+
+  if(subject.length < 10){
+    text = "Please Enter Correct Subject";
+    error_message.innerHTML = text;
+    return false;
+  }
+
+  if(message.length <= 5){
+    text = "Please Write Your massage in details.";
+    error_message.innerHTML = text;
+    return false;
+  }
+  alert("Form Submitted Successfully!");
+  return true;
+}
+</script>

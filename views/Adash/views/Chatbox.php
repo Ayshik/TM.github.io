@@ -178,8 +178,10 @@ input[type=submit]:hover {
 
   <table id="table" border="1">
     <thead>
+		<th>Sl</th>
+		<th>Sender Id</th>
 <th>Subject</th>
-        <th>Sender Id</th>
+
       <th>From</th>
 
       <th>Date & Time</th>
@@ -194,8 +196,10 @@ input[type=submit]:hover {
         foreach($products as $product)
         {
           echo "<tr>";
+					echo "<td>".$product["Sl"]."</td>";
+					echo "<td>".$product["SenderId"]."</td>";
 echo "<td>".$product["Subject"]."</td>";
-              echo "<td>".$product["SenderId"]."</td>";
+
             echo "<td>".$product["Type"]."</td>";
 
               echo "<td>".$product["Date&Time"]."</td>";
@@ -211,6 +215,7 @@ echo "<td>".$product["Subject"]."</td>";
 
 	 <div class="container">
 	<center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" required ><br><br></center>
+	<input type="hidden" name="sl" id="no">
 		 <div class="row">
 
 
@@ -237,6 +242,7 @@ echo "<td>".$product["Subject"]."</td>";
                    {
 
                         document.getElementById("fname").value = this.cells[1].innerHTML;
+												document.getElementById("no").value = this.cells[0].innerHTML;
 
                    };
                }

@@ -85,7 +85,7 @@
 
    <!-- Nav Item - Tables -->
    <li class="nav-item">
-     <a class="nav-link" href="rdash.php">
+     <a class="nav-link" href="contact Admin.php">
        <i class="fas fa-fw fa-folder"></i>
        <span>Report</span></a>
    </li>

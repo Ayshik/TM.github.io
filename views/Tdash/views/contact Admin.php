@@ -94,10 +94,10 @@ body{
 <div class="wrapper">
   <h2>Contact Admin</h2>
   <div id="error_message"></div>
-  <form id="myform" onsubmit="return validate();" method="post" action="../controler/scont.php" >
+  <form id="myform" onsubmit="return validate();" method="post" action="../controler/tcont.php" >
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Sender" value="Student" id="bal" disabled >
+        <input type="text" placeholder="Sender" value="Teacher" id="bal" disabled >
     </div>
     <div class="input_field">
 			<label for="subject">To:</label>
@@ -144,7 +144,7 @@ function validate(){
     error_message.innerHTML = text;
     return false;
   }
-  alert("Form Submitted Successfully!");
+  alert("Report Sent Successfully!");
   return true;
 }
 </script>
