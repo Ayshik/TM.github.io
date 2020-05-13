@@ -16,6 +16,10 @@
     insertMessage();
   }
 
+  else if(isset($_POST["insertreport"]))
+  {
+    insertreportadmin();
+  }
 
 
 
@@ -161,6 +165,23 @@ if(!empty('$_SESSION["id"]')){
   return $products;
 }
 
+function insertreportadmin()
+{ session_start();
 
+  if(!empty('$_SESSION["loggedinuser"]')){
+    $var=$_SESSION["loggedinuser"];
+
+  }
+
+  $aname=$_POST["sub"];
+  $aemail=$_POST["msg"];
+
+
+  $query="INSERT INTO ainbox(Type,SenderId,Subject,Message,Status) VALUES ('Student','$var','$aname','$aemail','unread')";
+
+  execute($query);
+  echo $query;
+header("Location:../Views/contact Admin.php");
+}
 
 ?>

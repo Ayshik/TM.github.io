@@ -51,7 +51,7 @@
      <div id="collapseContact" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
        <div class="bg-white py-2 collapse-inner rounded">
          <a class="collapse-item" href="Chatbox.php">Contact To Teacher</a>
-         <a class="collapse-item" href="rdash.php">Contact To Admin</a>
+         <a class="collapse-item" href="contact Admin.php">Contact To Admin</a>
        </div>
      </div>
    </li>

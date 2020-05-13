@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Contact</title>
+	<title>Contact Admin</title>
+
 
 </head>
 
@@ -17,7 +18,7 @@
 }
 
 body{
-  background: #fece0c;
+  background: #C70039;
 }
 
 .wrapper{
@@ -81,7 +82,9 @@ body{
   transition: all 0.5s ease;
 }
 
-
+h1{
+	color: white;
+}
 
 
 </style>
@@ -89,38 +92,35 @@ body{
 
 
 <body>
-
+<center><h1>Report to Admin</h1><br><br></center>
 <div class="wrapper">
-  <h2>Contact Teacher</h2>
+  <h2>Contact Admin</h2>
   <div id="error_message"></div>
-  <form id="myform" onsubmit="return validate();">
+  <form id="myform" onsubmit="return validate();" method="post" action="../controler/scont.php" >
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Sender" id="" >
+        <input type="text" placeholder="Sender" value="Student" id="bal" disabled >
     </div>
     <div class="input_field">
 			<label for="subject">To:</label>
-        <input type="text" placeholder="Receiver" id=""><br><br>
+        <input type="text" placeholder="Receiver" value="ADMIN" id="null"disabled><br><br>
     </div>
 		<div class="input_field">
 			<label for="subject">Subject:</label>
-				<input type="text" placeholder="Subject" id="subject"><br><br>
+				<input type="text" name="sub" placeholder="Subject" id="subject"><br><br>
 		</div>
 
     <div class="input_field">
 
-        <textarea placeholder="Message" id="message"></textarea>
+        <textarea placeholder="Message" name="msg" id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit">
+        <input type="submit" name="insertreport" value="Signup">
     </div>
   </form>
 </div>
 
-
-
 </body>
-
 </html>
 <script>
 
@@ -141,8 +141,8 @@ function validate(){
     return false;
   }
 
-  if(message.length <= 140){
-    text = "Please Enter More Than 140 Characters";
+  if(message.length <= 40){
+    text = "Please Write your problem in details";
     error_message.innerHTML = text;
     return false;
   }
