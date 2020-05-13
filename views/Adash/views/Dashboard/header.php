@@ -1,6 +1,11 @@
+
 <?php
 session_start();
+include('../controler/acont.php');
+if (!isLoggedIn()) {
 
+  header('location: ../../Home.php');
+}
 ?>
 
  <!DOCTYPE html>

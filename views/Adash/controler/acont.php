@@ -197,5 +197,12 @@ if(!empty('$_SESSION["id"]')){
   return $products;
 }
 
-
+function isLoggedIn()
+{
+  if (isset($_SESSION['loggedinuser'])) {
+    return true;
+  }else{
+    return false;
+  }
+}
 ?>

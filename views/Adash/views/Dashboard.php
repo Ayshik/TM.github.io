@@ -5,7 +5,7 @@ include('Dashboard/header.php');
 
 include('Dashboard/navbar.php');
 
-require ('../controler/acont.php');
+//require ('../controler/acont.php');
 $products = getnoti();
 
 
