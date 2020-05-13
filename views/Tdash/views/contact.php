@@ -9,11 +9,12 @@
 
 <style>
 *{
-  margin: 0;
+  margin: 8px;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   font-family: 'Josefin Sans', sans-serif;
+	    font-weight: bold;
 }
 
 body{
@@ -95,19 +96,20 @@ body{
   <div id="error_message"></div>
   <form id="myform" onsubmit="return validate();">
     <div class="input_field">
-			
-        <input type="text" placeholder="Name" id="name">
+			<label for="Name">From:</label >
+        <input type="text" placeholder="Sender" id="name" >
     </div>
     <div class="input_field">
-        <input type="text" placeholder="Subject" id="subject">
+			<label for="subject">To:</label>
+        <input type="text" placeholder="Receiver" id="subject"><br><br>
     </div>
+		<div class="input_field">
+			<label for="subject">Subject:</label>
+				<input type="text" placeholder="Subject" id="subject"><br><br>
+		</div>
+
     <div class="input_field">
-        <input type="text" placeholder="Phone" id="phone">
-    </div>
-    <div class="input_field">
-        <input type="text" placeholder="Email" id="email">
-    </div>
-    <div class="input_field">
+
         <textarea placeholder="Message" id="message"></textarea>
     </div>
     <div class="btn">

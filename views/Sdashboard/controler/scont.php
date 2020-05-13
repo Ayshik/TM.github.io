@@ -1,5 +1,6 @@
 <?php
   $var;
+  $var2;
   require_once '../models/db_connect.php';
   if(isset($_POST["add_picture"]))
   {
@@ -18,12 +19,9 @@
 
 
 
-
-
-
   function getstudent()
   {
-    $query ="SELECT * FROM student";
+    $query ="SELECT * FROM teacher";
     $products = get($query);
     return $products;
   }
@@ -52,7 +50,7 @@
 
   }
 
-  function getdetails() 
+  function getdetails()
   {
     session_start();
 
@@ -64,7 +62,7 @@
 
 
 
-     $query="SELECT * FROM student WHERE UserName='$var'";
+    $query="SELECT * FROM student WHERE UserName='$var'";
     $product=get($query);
     return $product[0];
 
@@ -118,13 +116,13 @@
 function getmessage()
 {
 
-    session_start();
+
   if(!empty('$_SESSION["loggedinuser"]')){
     $var=$_SESSION["loggedinuser"];
 
   }
 
-  $query ="SELECT * FROM chatbox where Receiver='$var'";
+  $query ="SELECT * FROM sinbox where ReceiverId='$var'";
   $products = get($query);
   return $products;
 }
@@ -138,22 +136,30 @@ if(!empty('$_SESSION["loggedinuser"]')){
 $var=$_SESSION["loggedinuser"];
 
 }
-if(isset($_POST["fname"])){
-
-
-  $fname=$_POST["fname"];
+if(isset($_POST["fnamee"])){
+  $fname=$_POST["fnamee"];
   $sub=$_POST["subject"];
 
 
   $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('$var','$fname','$sub')";
-  echo $query;
+
   execute($query);
-
+  $_SESSION["id"]=$fname;
+  header("Location:../Views/messagebox.php");
 }
 }
 
 
+function getreply(){
+if(!empty('$_SESSION["id"]')){
+  $var2=$_SESSION["id"];
+  $var=$_SESSION["loggedinuser"];
 
+}
+  $query ="SELECT * from chatbox WHERE `Sender`='$var' and `Receiver`='$var2' or  `Sender`='$var2' and `Receiver`='$var' order by `Sl` DESC";
+  $products = get($query);
+  return $products;
+}
 
 
 

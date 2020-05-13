@@ -1,8 +1,9 @@
 
 <?php
-
+session_start();
 	require '../controler/acont.php';
 	$products = getainbox();
+
 
 
 ?>
@@ -177,7 +178,7 @@ input[type=submit]:hover {
 
   <table id="table" border="1">
     <thead>
-      <th>SL.</th>
+<th>Subject</th>
         <th>Sender Id</th>
       <th>From</th>
 
@@ -193,7 +194,7 @@ input[type=submit]:hover {
         foreach($products as $product)
         {
           echo "<tr>";
-            echo "<td>".$product["Sl"]."</td>";
+echo "<td>".$product["Subject"]."</td>";
               echo "<td>".$product["SenderId"]."</td>";
             echo "<td>".$product["Type"]."</td>";
 
@@ -206,7 +207,6 @@ input[type=submit]:hover {
 
     </tbody>
   </table>
-
 
 
 	 <div class="container">

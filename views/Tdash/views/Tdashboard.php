@@ -392,7 +392,7 @@ body{
 
           					<div class="price-label"><span ><b><?php echo $product["UserName"];?></b></span></div>
 
-          					<div class="ca"><a class="cb" style="width:185px;font-family:consolas;margin-top:5px;">Contract</a></span></div>
+          					<div class="ca"><a class="cb" href="contact.php" style="width:185px;font-family:consolas;margin-top:5px;color:black;font-weight:bold;">Contract</a></span></div>
 
           			</div>
           		<?php

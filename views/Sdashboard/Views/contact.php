@@ -97,12 +97,16 @@ body{
   <form id="myform" onsubmit="return validate();">
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Name" id="name" >
+        <input type="text" placeholder="Sender" id="name" >
     </div>
     <div class="input_field">
 			<label for="subject">To:</label>
-        <input type="text" placeholder="Subject" id="subject"><br><br>
+        <input type="text" placeholder="Receiver" id="subject"><br><br>
     </div>
+		<div class="input_field">
+			<label for="subject">Subject:</label>
+				<input type="text" placeholder="Subject" id="subject"><br><br>
+		</div>
 
     <div class="input_field">
 

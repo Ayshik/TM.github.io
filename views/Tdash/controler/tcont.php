@@ -1,5 +1,6 @@
 <?php
   $var;
+$var2;
   require_once '../models/db_connect.php';
   if(isset($_POST["add_picture"]))
 	{
@@ -9,6 +10,13 @@
   {
     Profileupdate();
   }
+  else if(isset($_POST["inserttext"]))
+  {
+    insertMessage();
+
+  }
+
+
 
 	function getteacher()
 	{
@@ -114,8 +122,48 @@
 	}
 
 
+  function getreply(){
+  if(!empty('$_SESSION["id"]')){
+    $var2=$_SESSION["id"];
+    $var=$_SESSION["loggedinuser"];
+
+  }
+    $query ="SELECT * from chatbox WHERE `Sender`='$var' and `Receiver`='$var2' or  `Sender`='$var2' and `Receiver`='$var' order by `Sl` DESC";
+    $products = get($query);
+    return $products;
+  }
+
+  function getainbox()
+  {
+
+  if(!empty('$_SESSION["loggedinuser"]')){
+    $var=$_SESSION["loggedinuser"];
+}
+
+    $query ="SELECT * FROM tinbox where ReceiverId='$var'";
+    $products = get($query);
+    return $products;
+  }
 
 
+  function insertMessage()
+  { session_start();
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+  if(isset($_POST["fnamee"])){
 
 
+    $fname=$_POST["fnamee"];
+    $sub=$_POST["subject"];
+
+
+    $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('$var','$fname','$sub')";
+
+    execute($query);
+    $_SESSION["id"]=$fname;
+  header("Location:../views/messagebox.php");
+  }
+  }
 ?>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 	require '../controler/scont.php';
 	$products = getmessage();
 
@@ -170,65 +170,61 @@ input[type=submit]:hover {
 </head>
 <body>
 
-<center><h1>Chat Box</h1><br><br></center>
+<center><h1>InBox</h1><br><br></center>
 
 <form  method="post" action="../controler/scont.php" enctype="multipart/form-data">
 
 
-  <table id="table" border="1">
-  <thead>
+<table id="table" border="1">
+	<thead>
+<th>Subject</th>
+			<th>Sender Id</th>
+		<th>From</th>
+
+		<th>Date & Time</th>
+		<th>Massage</th>
 
 
-    <th>From</th>
-      <th>Sender Id</th>
-  <th>Massage</th>
-    <th>Date & Time</th>
+	</thead>
 
 
+	<tbody>
+		<?php
+			foreach($products as $product)
+			{
+				echo "<tr>";
+echo "<td>".$product["Subject"]."</td>";
+						echo "<td>".$product["SenderId"]."</td>";
+					echo "<td>".$product["Type"]."</td>";
 
-  </thead>
+						echo "<td>".$product["Date&Time"]."</td>";
+					echo "<td>".$product["Message"]."</td>";
 
+				echo "</tr>";
+			}
+		?>
 
-  <tbody>
-    <?php
-      foreach($products as $product)
-      {
-        echo "<tr>";
-
-
-          echo "<td>Teacher</td>";
-          echo "<td>".$product["Sender"]."</td>";
-  echo "<td>".$product["Message"]."</td>";
-            echo "<td>".$product["Date&Time"]."</td>";
-
-
-        echo "</tr>";
-      }
-    ?>
-
-  </tbody>
-  </table>
+	</tbody>
+</table>
 
 
-
-   <!--<button class="button">Send</button><br><br>-->
-   <div class="container">
-<center><h2>To Id :</h2><input type="text" name="fname" id="fname" required><br><br></center>
-     <div class="row">
+ <div class="container">
+<center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" required ><br><br></center>
+	 <div class="row">
 
 
-       <div class="col-25">
-        <h2> <label for="subject">Massage Box:</label><h2>
-       </div>
-       <div class="col-75">
-         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;" required></textarea>
-       </div>
-     </div>
-     <div class="row">
-       <input type="submit" name="inserttext" value="Submit">
-     </div>
+		 <div class="col-25">
+			<h2> <label for="subject">Massage Box:</label><h2>
+		 </div>
+		 <div class="col-75">
+			 <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;" required></textarea>
+		 </div>
+	 </div>
+	 <div class="row">
+		 <input type="submit" name="inserttext" value="Submit">
+	 </div>
 
-   </div>
+ </div>
     </form>
 <script>
 

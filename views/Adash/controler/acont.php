@@ -16,13 +16,14 @@ $var;
   else if(isset($_POST["inserttext"]))
   {
     insertMessage();
+
   }
   else if(isset($_POST["insertadmin"]))
   {
     insertadmin();
   }
 
-   
+
 
 	function getainbox()
 	{
@@ -30,8 +31,6 @@ $var;
 		$products = get($query);
 		return $products;
 	}
-
- 
 
 
   function gettcomments()
@@ -134,7 +133,7 @@ header("Location:../views/Ssurvey.php");
 }
 
 function insertMessage()
-{
+{ session_start();
 if(isset($_POST["fnamee"])){
 
 
@@ -145,7 +144,8 @@ if(isset($_POST["fnamee"])){
   $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('ADMIN','$fname','$sub')";
   echo $query;
   execute($query);
-
+  $_SESSION["id"]=$fname;
+header("Location:../views/messagebox.php");
 }
 }
 
@@ -185,6 +185,17 @@ function getnoti()
   return $products;
 }
 
+function getreply()
+{
+
+if(!empty('$_SESSION["id"]')){
+  $var=$_SESSION["id"];
+
+}
+  $query ="SELECT * from chatbox WHERE `Sender`='ADMIN' and `Receiver`='$var' or  `Sender`='$var' and `Receiver`='ADMIN' order by `Sl` DESC";
+  $products = get($query);
+  return $products;
+}
 
 
 ?>

@@ -1,21 +1,137 @@
 <?php
 session_start();
-	require '../controler/tcont.php';
-	$products = getainbox();
+	require '../controler/acont.php';
 
-
+$reply=getreply();
 
 ?>
 
 
 
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Chat Box</title>
+
+   <link rel="stylesheet" href="chat.css">
+</head>
+
+
 <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: tahoma, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: lightblue;
+}
+.message_box{
+    width: 500px;
+    min-width: 390px;
+    height: 600px;
+    background: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    box-shadow: 0 3px #ccc;
+}
+.message_logs{
+    padding: 10px;
+    width: 100%;
+    height: 450px;
+    background: #eee;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+}
+.message_logs::-webkit-scrollbar{
+    width: 10px;
+}
+.message_logs::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: rgba(0,0,0,0.1);
+}
+.message{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.message .user-photo{
+    width: 60px;
+    height: 60px;
+    background: #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.message .user-photo img{
+    width: 100%;
+}
+.message .message_chat{
+    width: 80%;
+    padding: 15px;
+    margin:5px 10px 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+}
+.friend .message_chat{
+    background: #1adda4;
+}
+.self .message_chat{
+    background: #1ddced;
+    order: -1;
+}
+.chat-form{
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+.chat-form textarea{
+    background: #fbfbfb;
+    height: 50px;
+    width: 75%;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    resize: 3px;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+}
+.chat-form textarea:focus{
+    background: #fff;
+}
+.chat-form textarea:focus::-webkit-scrollbar{
+    width: 10px;
+}
+.chat-form textarea:focus::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: rgba(0,0,0,0.1);
+}
+.chat-form button{
+    background: #1ddced;
+    padding: 5px 15px;
+    font-size: 30px;
+    color: #fff;
+    border: none;
+    margin: 0 10px;
+    border-radius: 3px;
+    box-shadow: 0 3px 0 #0eb2c1;
+    cursor: pointer;
+
+    -webkit-transition: background .2s ease ;
+    -moz-transition: background .2s ease  ;
+    -o-transition: background .2s ease  ;
+}
+.chat-form button:hover{
+    background: #13c8d9;
+}
+
+
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -168,87 +284,55 @@ input[type=submit]:hover {
   }
 
 
+
+
+
+
+
+
 </style>
-</head>
+
+
 <body>
+	<form  method="post" action="../controler/acont.php" enctype="multipart/form-data">
+	<center><h1>InBox</h1></center>
+    <div class="message_box">
+        <div class="message_logs">
 
-<center><h1>InBox</h1><br><br></center>
-
-
-
-
-<form  method="post" action="../controler/tcont.php" enctype="multipart/form-data">
-
-
-  <table id="table" border="1">
-    <thead>
-<th>Subject</th>
-        <th>Sender Id</th>
-      <th>From</th>
-
-      <th>Date & Time</th>
-      <th>Massage</th>
+					<table id="table">
+						<thead>
+								<th>Date & Time</th>
+								<th>Sender Id</th>
+								<th>Reciever Id</th>
+								<th>Massage</th>
 
 
-    </thead>
+						</thead>
 
 
-    <tbody>
-      <?php
-        foreach($products as $product)
-        {
-          echo "<tr>";
-echo "<td>".$product["Subject"]."</td>";
-              echo "<td>".$product["SenderId"]."</td>";
-            echo "<td>".$product["Type"]."</td>";
+						<tbody>
+							<?php
+									foreach($reply as $pro)
+								{
+									echo "<tr>";
+											echo "<td>".$pro["Date&Time"]."</td>";
+											echo "<td>".$pro["Sender"]."</td>";
+											echo "<td>".$pro["Receiver"]."</td>";
+										echo "<td>".$pro["Message"]."</td>";
 
-              echo "<td>".$product["Date&Time"]."</td>";
-            echo "<td>".$product["Message"]."</td>";
+									echo "</tr>";
+								}
+							?>
 
-          echo "</tr>";
-        }
-      ?>
+						</tbody>
+					</table>
+            </div>
 
-    </tbody>
-  </table>
-
-
-   <div class="container">
-  <center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" required ><br><br></center>
-     <div class="row">
-
-
-       <div class="col-25">
-        <h2> <label for="subject">Massage Box:</label><h2>
-       </div>
-       <div class="col-75">
-         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;" required></textarea>
-       </div>
-     </div>
-     <div class="row">
-       <input type="submit" name="inserttext" value="Submit">
-     </div>
-
-   </div>
-  </form>
-<script>
-
-               var table = document.getElementById('table');
-
-               for(var i = 1; i < table.rows.length; i++)
-               {
-                   table.rows[i].onclick = function()
-                   {
-                        //rIndex = this.rowIndex;
-                        document.getElementById("fname").value = this.cells[1].innerHTML;
-
-                   };
-               }
-
-        </script>
-
-
-
-
+        <div class="chat-form">
+            <textarea></textarea>
+            <button>send</button>
+        </div>
+</div>
+	</form>
 </body>
 </html>
