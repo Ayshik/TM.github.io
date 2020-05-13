@@ -6,4 +6,5 @@ DAtaBase:    https://drive.google.com/open?id=13ADg8S-PReTvW0yA5YpIudEqiV72OswC
 
 
 *******Database update hoise ayta fetch korar por database file import kore nis.
-google drive e database folder e tm.sql ase.******
+google drive e database folder e tm.sql ase.******Diye disi github e
+
