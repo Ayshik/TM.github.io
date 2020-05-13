@@ -82,9 +82,7 @@ body{
   transition: all 0.5s ease;
 }
 
-h1{
-	color: white;
-}
+
 
 
 </style>
@@ -92,7 +90,7 @@ h1{
 
 
 <body>
-<center><h1>Report to Admin</h1><br><br></center>
+
 <div class="wrapper">
   <h2>Contact Admin</h2>
   <div id="error_message"></div>
