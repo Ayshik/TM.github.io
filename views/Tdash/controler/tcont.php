@@ -15,6 +15,16 @@ $var2;
     insertMessage();
 
   }
+  else if(isset($_POST["insertreport"]))
+  {
+    insertreportadmin();
+  }
+
+  else if(isset($_POST["senttoteacher"]))
+  {
+    sendmessagetoteacher();
+  }
+
 
 
 
@@ -175,6 +185,72 @@ else{
     execute($query);
     $_SESSION["id"]=$fname;
   header("Location:../views/messagebox.php");
+                            }
+
   }
+
+
+
+  function insertreportadmin()
+  { session_start();
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+
+    $aname=$_POST["sub"];
+    $aemail=$_POST["msg"];
+
+
+    $query="INSERT INTO ainbox(Type,SenderId,Subject,Message,Status) VALUES ('Teacher','$var','$aname','$aemail','unread')";
+    $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','ADMIN','$aemail')";
+
+    execute($query);
+    execute($query2);
+
+  header("Location:../Views/contact Admin.php");
   }
+
+  function sendmessagetoteacher()
+  { session_start();
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+  $uid=$_POST["rec"];
+    $aname=$_POST["sub"];
+    $aemail=$_POST["msg"];
+
+
+    $query="INSERT INTO sinbox(Type,SenderId,ReceiverId,Subject,Message,Status) VALUES ('Teacher','$var','$uid','$aname','$aemail','unread')";
+
+    $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','$uid','$aemail')";
+
+   execute($query);
+      execute($query2);
+    echo $query;
+
+    echo $query2;
+
+
+  header("Location:../Views/Tdashboard.php");
+  }
+
+  function getmsgnoti()
+  {
+
+
+      if(!empty('$_SESSION["loggedinuser"]')){
+        $var=$_SESSION["loggedinuser"];
+
+      }
+
+    $query ="SELECT * from `tinbox` WHERE Status='unread' and ReceiverId='$var' order by `SL` DESC";
+    $products = get($query);
+    return $products;
+  }
+
+
 ?>

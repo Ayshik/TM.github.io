@@ -1,3 +1,11 @@
+<?php
+session_start();
+	  $pid = $_GET["uid"];
+$var=$_SESSION["loggedinuser"];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,28 +99,28 @@ body{
 <body>
 
 <div class="wrapper">
-  <h2>Contact Teacher</h2>
+  <h2>Contact Student</h2>
   <div id="error_message"></div>
-  <form id="myform" onsubmit="return validate();">
+  <form id="myform" onsubmit="return validate();" method="post" action="../controler/tcont.php">
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Sender" id="" >
+        <input type="text" placeholder="Sender" value=<?php echo $var?> readonly >
     </div>
     <div class="input_field">
 			<label for="subject">To:</label>
-        <input type="text" placeholder="Receiver" id=""><br><br>
+        <input type="text" placeholder="Receiver" name="rec" value=<?php echo $pid?> readonly><br><br>
     </div>
 		<div class="input_field">
 			<label for="subject">Subject:</label>
-				<input type="text" placeholder="Subject" id="subject"><br><br>
+				<input type="text" placeholder="Subject" name="sub" id="subject"><br><br>
 		</div>
 
     <div class="input_field">
 
-        <textarea placeholder="Message" id="message"></textarea>
+        <textarea placeholder="Message" name="msg" id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit">
+        <input type="submit"  name="senttoteacher" value="Submit">
     </div>
   </form>
 </div>
@@ -136,17 +144,17 @@ function validate(){
   var text;
 
   if(subject.length < 10){
-    text = "Please Enter Correct Subject";
+    text = "Please Write your Subject correctly more than 10 words";
     error_message.innerHTML = text;
     return false;
   }
 
-  if(message.length <= 140){
-    text = "Please Enter More Than 140 Characters";
+  if(message.length <= 5){
+    text = "Please Write your massage correctly minimum 5 words";
     error_message.innerHTML = text;
     return false;
   }
-  alert("Form Submitted Successfully!");
+  alert("Your Message has been sent");
   return true;
 }
 </script>

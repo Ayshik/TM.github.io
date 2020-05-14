@@ -82,9 +82,7 @@ body{
   transition: all 0.5s ease;
 }
 
-h1{
-	color: white;
-}
+
 
 
 </style>
@@ -92,7 +90,7 @@ h1{
 
 
 <body>
-<center><h1>Report to Admin</h1><br><br></center>
+
 <div class="wrapper">
   <h2>Contact Admin</h2>
   <div id="error_message"></div>
@@ -115,7 +113,7 @@ h1{
         <textarea placeholder="Message" name="msg" id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit" name="insertreport" value="Signup">
+        <input type="submit" name="insertreport" value="Submit">
     </div>
   </form>
 </div>
@@ -136,7 +134,7 @@ function validate(){
   var text;
 
   if(subject.length < 10){
-    text = "Please Enter Correct Subject";
+    text = "Please Write Correct Subject";
     error_message.innerHTML = text;
     return false;
   }

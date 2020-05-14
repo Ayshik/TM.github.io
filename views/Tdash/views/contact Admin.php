@@ -1,18 +1,9 @@
-<?php
-session_start();
-	  $pid = $_GET["uid"];
-$var=$_SESSION["loggedinuser"];
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Contact</title>
+	<title>Contact Admin</title>
+
 
 </head>
 
@@ -27,7 +18,7 @@ $var=$_SESSION["loggedinuser"];
 }
 
 body{
-  background: #fece0c;
+  background: #C70039;
 }
 
 .wrapper{
@@ -101,20 +92,20 @@ body{
 <body>
 
 <div class="wrapper">
-  <h2>Contact Teacher</h2>
+  <h2>Contact Admin</h2>
   <div id="error_message"></div>
-  <form id="myform" onsubmit="return validate();" method="post" action="../controler/scont.php">
+  <form id="myform" onsubmit="return validate();" method="post" action="../controler/tcont.php" >
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Sender" value=<?php echo $var?> readonly >
+        <input type="text" placeholder="Sender" value="Teacher" id="bal" disabled >
     </div>
     <div class="input_field">
-			<label for="rec">To:</label>
-        <input type="text" placeholder="Receiver"name="rec" value=<?php echo $pid?> readonly><br><br>
+			<label for="subject">To:</label>
+        <input type="text" placeholder="Receiver" value="ADMIN" id="null"disabled><br><br>
     </div>
 		<div class="input_field">
 			<label for="subject">Subject:</label>
-				<input type="text" placeholder="Subject" name="sub" id="subject"><br><br>
+				<input type="text" name="sub" placeholder="Subject" id="subject"><br><br>
 		</div>
 
     <div class="input_field">
@@ -122,15 +113,12 @@ body{
         <textarea placeholder="Message" name="msg" id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit" name="senttoteacher" value="Submit">
+        <input type="submit" name="insertreport" value="Signup">
     </div>
   </form>
 </div>
 
-
-
 </body>
-
 </html>
 <script>
 
@@ -146,17 +134,17 @@ function validate(){
   var text;
 
   if(subject.length < 10){
-    text = "Please Enter Correct Subject";
+    text = "Please Write Correct Subject";
     error_message.innerHTML = text;
     return false;
   }
 
-  if(message.length <= 5){
-    text = "Please Write Your massage in details.";
+  if(message.length <= 40){
+    text = "Please Write your problem in details";
     error_message.innerHTML = text;
     return false;
   }
-  alert("Message Sent Successfully!");
+  alert("Report Sent Successfully!");
   return true;
 }
 </script>

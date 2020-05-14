@@ -27,7 +27,7 @@ $var;
 
 	function getainbox()
 	{
-		$query ="SELECT * FROM ainbox";
+		$query ="SELECT * FROM ainbox where Status='unread'";
 		$products = get($query);
 		return $products;
 	}
@@ -138,12 +138,15 @@ if(isset($_POST["fnamee"])){
 
 
   $fname=$_POST["fnamee"];
+  $slno=$_POST["sl"];
   $sub=$_POST["subject"];
 
 
   $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('ADMIN','$fname','$sub')";
+  $query2="UPDATE ainbox SET Status='read' WHERE Sl='$slno'";
   echo $query;
   execute($query);
+  execute($query2);
   $_SESSION["id"]=$fname;
 header("Location:../views/messagebox.php");
 }
@@ -180,7 +183,7 @@ function getunread()
 function getnoti()
 {
 
-  $query ="SELECT * from `notification` WHERE Status='unread' order by `Time&Date` DESC";
+  $query ="SELECT * from `notification` WHERE Status='unread' order by `SL` DESC";
   $products = get($query);
   return $products;
 }
@@ -205,4 +208,15 @@ function isLoggedIn()
     return false;
   }
 }
+
+
+function getmsgnoti()
+{
+
+  $query ="SELECT * from `ainbox` WHERE Status='unread' order by `SL` DESC";
+  $products = get($query);
+  return $products;
+}
+
+
 ?>
