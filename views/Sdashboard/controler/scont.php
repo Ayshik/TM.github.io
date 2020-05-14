@@ -23,6 +23,9 @@
 
 
 
+
+
+
   function getstudent()
   {
     $query ="SELECT * FROM teacher";
@@ -91,6 +94,8 @@
 
   function Profileupdate()
   {
+    $npassword=$_POST["npass"];
+      $cpass=$_POST["cpass"];
       session_start();
 
       if(!empty('$_SESSION["loggedinuser"]')){
@@ -98,22 +103,21 @@
 
       }
 
-  if(isset($_POST["mpass"]) || isset($_POST["npass"]) || isset($_POST["cpass"])){
+  if($npassword==$cpass){
 
-
-
-    $institute=$_POST["institute"];
-    $phone=$_POST["phone"];
-    $address=$_POST["address"];
-    $password=$_POST["mpass"];
-      $npassword=$_POST["npass"];
-        $cpass=$_POST["cpass"];
-
-
-     $query="UPDATE student SET Institute='$institute',Phone='$phone',Address='$address',Password='$cpass' WHERE UserName='$var'";
+            $institute=$_POST["institute"];
+            $phone=$_POST["phone"];
+            $address=$_POST["address"];
+            $password=$_POST["mpass"];
+            $npassword=$_POST["npass"];
+            $cpass=$_POST["cpass"];
+    $query="UPDATE student SET Institute='$institute',Phone='$phone',Address='$address',Password='$password' WHERE UserName='$var'";
     execute($query);
-
-
+  }
+  else{
+    echo '<script language="javascript">';
+    echo 'alert("yor password not match!!!!")';
+    echo '</script>';
   }
 }
 

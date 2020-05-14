@@ -698,26 +698,27 @@ color: #a2a6af
 
 						<fieldset class="fieldset">
                             <h3 class="fieldset-title"><b>Update Password</b></h3>
+
                             <div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Recent Password</label>
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">old Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" name="mpass" class="form-control" placeholder="Enter recent password" value="<?php echo $product["Password"]?>">
+                                    <input type="password" id="cpass" name="cpass" class="form-control" onkeyup='check();' value="<?php echo $product["Password"]?>">
 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Eter old Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" name="npass" class="form-control" placeholder="Enter a new password">
+                                    <input type="password" id="npass" name="npass" class="form-control" onkeyup='check();' placeholder="Enter old password"><b><span id='message'></span></b>
 
                                 </div>
                             </div>
 
 
 							<div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Confirm Password</label>
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="password" name="cpass" class="form-control" placeholder="Enter new password again">
+                                    <input type="password" name="mpass" class="form-control" placeholder="Enter new password again">
 
                                 </div>
                             </div>
@@ -745,6 +746,19 @@ color: #a2a6af
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
+</script>
+
+<script>
+var check = function() {
+  if (document.getElementById('npass').value ==
+    document.getElementById('cpass').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
 </script>
 </body>
 </html>
