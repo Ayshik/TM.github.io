@@ -113,7 +113,7 @@ body{
         <textarea placeholder="Message" name="msg" id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit" name="insertreport" value="Signup">
+        <input type="submit" name="insertreport" value="Submit">
     </div>
   </form>
 </div>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+	  $pid = $_GET["uid"];
+$var=$_SESSION["loggedinuser"];
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,26 +103,26 @@ body{
 <div class="wrapper">
   <h2>Contact Teacher</h2>
   <div id="error_message"></div>
-  <form id="myform" onsubmit="return validate();">
+  <form id="myform" onsubmit="return validate();" method="post" action="../controler/scont.php">
     <div class="input_field">
 			<label for="Name">From:</label >
-        <input type="text" placeholder="Sender" id="" >
+        <input type="text" placeholder="Sender" value=<?php echo $var?> readonly >
     </div>
     <div class="input_field">
-			<label for="subject">To:</label>
-        <input type="text" placeholder="Receiver" id=""><br><br>
+			<label for="rec">To:</label>
+        <input type="text" placeholder="Receiver"name="rec" value=<?php echo $pid?> readonly><br><br>
     </div>
 		<div class="input_field">
 			<label for="subject">Subject:</label>
-				<input type="text" placeholder="Subject" id="subject"><br><br>
+				<input type="text" placeholder="Subject" name="sub" id="subject"><br><br>
 		</div>
 
     <div class="input_field">
 
-        <textarea placeholder="Message" id="message"></textarea>
+        <textarea placeholder="Message" name="msg"id="message"></textarea>
     </div>
     <div class="btn">
-        <input type="submit">
+        <input type="submit" name="senttoteacher" value="Submit">
     </div>
   </form>
 </div>
@@ -146,7 +156,7 @@ function validate(){
     error_message.innerHTML = text;
     return false;
   }
-  alert("Form Submitted Successfully!");
+  alert("Message Sent Successfully!");
   return true;
 }
 </script>

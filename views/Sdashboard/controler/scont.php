@@ -20,7 +20,10 @@
   {
     insertreportadmin();
   }
-
+  else if(isset($_POST["senttoteacher"]))
+  {
+    sendmessagetoteacher();
+  }
 
 
   function getstudent()
@@ -184,6 +187,32 @@ function insertreportadmin()
   execute($query2);
 
 header("Location:../Views/contact Admin.php");
+}
+
+function sendmessagetoteacher()
+{ session_start();
+
+  if(!empty('$_SESSION["loggedinuser"]')){
+    $var=$_SESSION["loggedinuser"];
+
+  }
+$uid=$_POST["rec"];
+  $aname=$_POST["sub"];
+  $aemail=$_POST["msg"];
+
+
+  $query="INSERT INTO tinbox(Type,SenderId,ReceiverId,Subject,Message,Status) VALUES ('Student','$var','$uid','$aname','$aemail','unread')";
+
+  $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','$uid','$aemail')";
+
+ execute($query);
+    execute($query2);
+  echo $query;
+
+  echo $query2;
+
+
+header("Location:../Views/SDashboard.php");
 }
 
 ?>
