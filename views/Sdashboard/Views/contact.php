@@ -119,7 +119,7 @@ body{
 
     <div class="input_field">
 
-        <textarea placeholder="Message" name="msg"id="message"></textarea>
+        <textarea placeholder="Message" name="msg" id="message"></textarea>
     </div>
     <div class="btn">
         <input type="submit" name="senttoteacher" value="Submit">
