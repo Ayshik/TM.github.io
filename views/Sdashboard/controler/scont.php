@@ -215,4 +215,23 @@ $uid=$_POST["rec"];
 header("Location:../Views/SDashboard.php");
 }
 
+
+function getmsgnoti()
+{
+
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+
+    }
+
+  $query ="SELECT * from `sinbox` WHERE Status='unread' and ReceiverId='$var' order by `SL` DESC";
+  $products = get($query);
+  return $products;
+}
+
+
+
+
+
 ?>

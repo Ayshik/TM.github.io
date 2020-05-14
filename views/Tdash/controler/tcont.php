@@ -227,6 +227,19 @@ $var2;
   header("Location:../Views/Tdashboard.php");
   }
 
+  function getmsgnoti()
+  {
+
+
+      if(!empty('$_SESSION["loggedinuser"]')){
+        $var=$_SESSION["loggedinuser"];
+
+      }
+
+    $query ="SELECT * from `tinbox` WHERE Status='unread' and ReceiverId='$var' order by `SL` DESC";
+    $products = get($query);
+    return $products;
+  }
 
 
 ?>

@@ -5,12 +5,10 @@ include('Dashboard/header.php');
 
 include('Dashboard/navbar.php');
 
-require '../controler/acont.php';
-$products = gettstudent();
 
-
-$noti = getnoti();
-
+$products = getnoti();
+$message=getmsgnoti();
+$products =gettstudent();
 
 
 
@@ -21,6 +19,21 @@ $dbname = "tm";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+if($sql="SELECT count(UserName) AS total FROM student"){
+
+  $result=mysqli_query($conn,$sql);
+  $values=mysqli_fetch_assoc($result);
+  $num_rows=$values["total"];
+
+
+}
+if($query="SELECT count(UserName) AS total FROM teacher"){
+  $result=mysqli_query($conn,$query);
+  $values=mysqli_fetch_assoc($result);
+  $num=$values["total"];
+
+}
+
 
 if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
   $result=mysqli_query($conn,$query);
@@ -28,7 +41,21 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
   $unread=$values["total"];
 
 }
+
+if($query="SELECT count(Sl) AS total FROM ainbox WHERE Status='unread'"){
+  $result=mysqli_query($conn,$query);
+  $values=mysqli_fetch_assoc($result);
+  $unreadmassage=$values["total"];
+
+}
+
+$monthly=($num * 500) + ($num_rows * 100);
+$annual=($monthly * 12)
+
+
+
 ?>
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -92,7 +119,7 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
                 </h6>
 
                 <?php
-                  foreach($noti as $product)
+                  foreach($products as $product)
 
                   {
                   ?>
@@ -133,54 +160,38 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter"><?php echo $unreadmassage ; ?></span>
               </a>
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
+                <?php
+                  foreach($message as $msg)
+
+                  {
+                  ?>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://photos.app.goo.gl/VLoVwg3z8rdMy14C6" alt="">
-                    <div class="status-indicator bg-success"></div>
+
+
+                    <img class="rounded-circle" src="../storage/product_image/icon.png" alt="">
+                  <!--<div class="status-indicator bg-success"></div>-->
+
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                    <div class="text-truncate"><?php echo $msg["Message"]?></div>
+                    <div class="small text-gray-500"><?php echo $msg["SenderId"]?>---<?php echo $msg["Date&Time"]?></div>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://photos.app.goo.gl/VLoVwg3z8rdMy14C6" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+
+                <?php
+                     }
+
+                     ?>
+
+                <a class="dropdown-item text-center small text-gray-500" href="Chatbox.php">Reply Messages</a>
               </div>
             </li>
 
@@ -189,8 +200,8 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ayshik Khan</span>
-                <img class="img-profile rounded-circle" src="https://photos.app.goo.gl/VLoVwg3z8rdMy14C6">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["loggedinuser"];?></span>
+                <img class="img-profile rounded-circle" src="../storage/product_image/Admin.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -217,7 +228,8 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
           </ul>
 
         </nav>
-        <!-- End of Topbar -->
+
+
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -278,6 +290,8 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
 
 
                   </tbody>
+
+
                 </table>
               </div>
             </div>
@@ -288,31 +302,29 @@ if($query="SELECT count(Sl) AS total FROM notification WHERE Status='unread'"){
 
       </div>
       <!-- End of Main Content -->
-
-      <!-- Bootstrap core JavaScript-->
       <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Core plugin JavaScript-->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      <!-- Custom scripts for all pages-->
-      <script src="js/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
 
-      <!-- Page level plugins -->
-      <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-      <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-      <!-- Page level custom scripts -->
-      <script src="js/demo/datatables-demo.js"></script>
+            <!-- Page level custom scripts -->
+            <script src="js/demo/datatables-demo.js"></script>
 
-      <?php
-
-
-
-
-      include('Dashboard/footer.php');
+            <?php
 
 
 
-      ?>
+
+            include('Dashboard/footer.php');
+
+
+
+            ?>

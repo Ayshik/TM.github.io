@@ -252,7 +252,7 @@ $annual=($monthly * 12)
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $monthly ; ?> TK</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-coins fa-3x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -269,7 +269,7 @@ $annual=($monthly * 12)
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $annual  ; ?> TK</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <i class="fas fa-lira-sign fa-3x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -295,7 +295,7 @@ $annual=($monthly * 12)
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      <i class="fas fa-user-plus fa-3x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -312,7 +312,7 @@ $annual=($monthly * 12)
                       <div class="h5 mb-0 font-weight-bold text-gray-800"> <?php   echo $num; ?></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      <i class="fas fa-user-tie fa-3x text-gray-300"></i>
                     </div>
                   </div>
                 </div>

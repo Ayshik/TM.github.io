@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 03:36 AM
+-- Generation Time: May 14, 2020 at 05:07 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -54,6 +54,7 @@ CREATE TABLE `ainbox` (
   `SenderId` varchar(100) NOT NULL,
   `Subject` varchar(200) NOT NULL,
   `Message` varchar(300) NOT NULL,
+  `Status` varchar(100) NOT NULL,
   `Date&Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -61,10 +62,13 @@ CREATE TABLE `ainbox` (
 -- Dumping data for table `ainbox`
 --
 
-INSERT INTO `ainbox` (`Sl`, `Type`, `SenderId`, `Subject`, `Message`, `Date&Time`) VALUES
-(1, 'Student', 'Ayshik111', 'nothing', 'I love this system.', '2020-04-01 19:11:58'),
-(2, 'Teacher', 'Ayshik112', 'something', 'Hi admin', '2020-05-14 01:33:21'),
-(4, 'Teacher', 'Ayshik11', 'go', 'hiiii', '2020-05-12 18:13:40');
+INSERT INTO `ainbox` (`Sl`, `Type`, `SenderId`, `Subject`, `Message`, `Status`, `Date&Time`) VALUES
+(1, 'Student', 'Ayshik111', 'nothing', 'I love this system.', 'read', '2020-04-01 19:11:58'),
+(2, 'Teacher', 'Ayshik112', 'something', 'Hi admin', 'unread', '2020-05-14 01:33:21'),
+(10, 'Student', 'Ayshik111', 'final test', 'sopnil koi', 'read', '2020-05-13 17:16:59'),
+(14, 'Student', 'Saad112', 'testing js code', 'Pass the mission success', 'unread', '2020-05-13 18:08:34'),
+(15, 'Student', 'Ayshik111', 'seheri kora sesh', 'done...............................................................................................', 'read', '2020-05-13 19:38:49'),
+(16, 'Teacher', 'Saad112', 'testing teacher', 'send this to admin ok i.think that will work...', 'unread', '2020-05-13 19:55:34');
 
 -- --------------------------------------------------------
 
@@ -102,7 +106,19 @@ INSERT INTO `chatbox` (`Sl`, `Sender`, `Receiver`, `Message`, `Date&Time`) VALUE
 (16, 'Ayshik111', 'Ayshik112', 'what is this success', '2020-05-13 07:08:39'),
 (18, 'Ayshik111', 'Saad112', 'start', '2020-05-13 07:18:22'),
 (19, 'Saad112', 'Ayshik111', 'start2', '2020-05-13 07:23:24'),
-(20, 'ADMIN', 'Ayshik111', 'confirmed', '2020-05-13 07:25:16');
+(20, 'ADMIN', 'Ayshik111', 'confirmed', '2020-05-13 07:25:16'),
+(21, 'ADMIN', 'Ayshik111', 'Thank you', '2020-05-13 21:12:02'),
+(22, 'Ayshik111', 'Saad112', 'kkk', '2020-05-14 01:31:37'),
+(23, 'Ayshik111', 'ADMIN', 'done...............................................................................................', '2020-05-14 01:38:50'),
+(24, 'Saad112', 'ADMIN', 'send this to admin ok i.think that will work...', '2020-05-14 01:55:34'),
+(26, 'ADMIN', 'Ayshik111', 'solved', '2020-05-14 03:30:46'),
+(27, 'ADMIN', 'Ayshik111', 'done', '2020-05-14 03:43:22'),
+(34, 'Ayshik111', 'a1126', 'hi this is ayshik want to read english.', '2020-05-14 06:01:50'),
+(37, 'Ayshik111', 'a1126', 'test successfull', '2020-05-14 06:07:36'),
+(38, 'Saad112', 'Ayshik11', 'hi', '2020-05-14 06:22:05'),
+(41, 'Saad112', 'Ayshik111', 'i am a good boy', '2020-05-14 06:43:44'),
+(42, 'ADMIN', 'Ayshik111', 'nai sala', '2020-05-14 07:48:45'),
+(43, 'ADMIN', 'Ayshik111', 'K', '2020-05-14 09:05:21');
 
 -- --------------------------------------------------------
 
@@ -123,14 +139,14 @@ CREATE TABLE `notification` (
 
 INSERT INTO `notification` (`Sl`, `Nmessage`, `Status`, `Time&Date`) VALUES
 (1, 'Sinam100 has joined as a Teacher!!', 'read', '2020-05-11 00:00:02'),
-(2, 'Sinam100 has joined as a Student!!', 'read', '2020-05-11 00:00:06'),
+(2, 'Sinam100 has joined as a Student!!', 'unread', '2020-05-11 00:00:06'),
 (3, 'Tamim100 has joined as a Student!!', 'read', '2020-05-11 00:00:09'),
 (4, 'Riyad123 has joined as a Teacher!!', 'read', '2020-05-11 03:24:35'),
 (5, 'Riyad123 has joined as a Teacher!!', 'read', '2020-05-11 03:30:12'),
 (6, 'Kema112233 has joined as a Teacher!!', 'read', '2020-05-11 03:32:05'),
 (7, 'Kema112233 has joined as a Teacher!!', 'read', '2020-05-11 03:32:42'),
 (8, 'Polok1122 has joined as a Teacher!!', 'read', '2020-05-11 03:33:29'),
-(9, 'Sikrity12 has joined as a Teacher!!', 'unread', '2020-05-12 23:59:44');
+(9, 'Sikrity12 has joined as a Teacher!!', 'read', '2020-05-12 23:59:44');
 
 -- --------------------------------------------------------
 
@@ -145,16 +161,18 @@ CREATE TABLE `sinbox` (
   `ReceiverId` varchar(200) NOT NULL,
   `Subject` varchar(200) NOT NULL,
   `Message` varchar(300) NOT NULL,
-  `Date&Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Date&Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sinbox`
 --
 
-INSERT INTO `sinbox` (`Sl`, `Type`, `SenderId`, `ReceiverId`, `Subject`, `Message`, `Date&Time`) VALUES
-(1, 'Student', 'Saad112', 'Ayshik111', 'nothing', 'I love this system.', '2020-04-01 19:11:58'),
-(4, 'Teacher', 'Ayshik11', 'test', 'go', 'hiiii', '2020-05-12 18:13:40');
+INSERT INTO `sinbox` (`Sl`, `Type`, `SenderId`, `ReceiverId`, `Subject`, `Message`, `Date&Time`, `Status`) VALUES
+(1, 'Teacher', 'Saad112', 'Ayshik1111', 'nothing', 'I love this system.', '2020-04-01 19:11:58', 'unread'),
+(4, 'Teacher', 'Ayshik11', 'Ayshik111', 'go', 'hiiii', '2020-05-12 18:13:40', 'read'),
+(6, 'Teacher', 'Saad112', 'Ayshik111', 'testing Student', 'i am a good boy', '2020-05-14 00:43:44', 'read');
 
 -- --------------------------------------------------------
 
@@ -244,7 +262,6 @@ INSERT INTO `teacher` (`UserName`, `Name`, `Institute`, `Type`, `Email`, `Phone`
 ('Polok1122', 'Polok khan', '', '', 'Israt112@gmail.com', '', '', '@Israt1221', 'male', '../storage/product_image/ava.png', ''),
 ('Rifa1122', 'Rifa Khan', 'aiub', 'Teacher', 'Ayshik@gmail.com', '01633075341', 'Basundhara', '@Rifa19980', 'female', '../storage/product_image/ava.png', ''),
 ('Rifa11225', 'Rifa Khan', 'aiub', 'Teacher', 'Ayshik@gmail.com', '01633075341', 'Basundhara', '@Rifa19980', 'female', '../storage/product_image/ava.png', ''),
-('Riyad123', 'Polash', '', '', 'Riyad@gmail.com', '', '', '@Ayshik1234', 'male', '../storage/product_image/ava.png', ''),
 ('Saad112', 'Kazi Saad', 'nai', 'Teacher', 'Saad@gmail.com', '01633075341', 'Basundhara', '@Saad1234', 'male', '../storage/product_image/ava.png', ''),
 ('Saad1123', 'Kazi Saad', 'nai', 'Teacher', 'Saad@gmail.com', '01633075341', 'Basundhara', '@Saad1234', 'male', '../storage/product_image/ava.png', ''),
 ('Saad1129', 'Kazi Saad', 'nai', 'Teacher', 'Saad@gmail.com', '01633075341', 'Basundhara', '@Saad1234', 'male', '../storage/product_image/ava.png', ''),
@@ -264,17 +281,20 @@ CREATE TABLE `tinbox` (
   `ReceiverId` varchar(200) NOT NULL,
   `Subject` varchar(200) NOT NULL,
   `Message` varchar(300) NOT NULL,
-  `Date&Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Date&Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tinbox`
 --
 
-INSERT INTO `tinbox` (`Sl`, `Type`, `SenderId`, `ReceiverId`, `Subject`, `Message`, `Date&Time`) VALUES
-(1, 'Student', 'Ayshik111', 'Saad112', 'nothing', 'I love this system.', '2020-04-01 19:11:58'),
-(2, 'Teacher', 'Ayshik112', 'Ayshik111', 'something', 'Hi admin', '2020-05-14 01:33:21'),
-(4, 'Teacher', 'Ayshik11', 'test', 'go', 'hiiii', '2020-05-12 18:13:40');
+INSERT INTO `tinbox` (`Sl`, `Type`, `SenderId`, `ReceiverId`, `Subject`, `Message`, `Date&Time`, `Status`) VALUES
+(1, 'Student', 'Ayshik111', 'Saad112', 'nothing', 'I love this system.', '2020-04-01 19:11:58', 'unread'),
+(2, 'Teacher', 'Ayshik112', 'Ayshik111', 'something', 'Hi admin', '2020-05-14 01:33:21', 'unread'),
+(4, 'Teacher', 'Ayshik11', 'Saad112', 'go', 'hiiii', '2020-05-12 18:13:40', 'unread'),
+(5, 'Student', 'Ayshik111', 'a1126', 'testing teacher', 'hi this is ayshik want to read english.', '2020-05-13 23:57:31', 'unread'),
+(7, 'Student', 'Ayshik111', 'a1126', 'testing code', 'test successfull', '2020-05-14 00:07:36', 'unread');
 
 -- --------------------------------------------------------
 
@@ -422,13 +442,13 @@ ALTER TABLE `wsques`
 -- AUTO_INCREMENT for table `ainbox`
 --
 ALTER TABLE `ainbox`
-  MODIFY `Sl` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Sl` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `chatbox`
 --
 ALTER TABLE `chatbox`
-  MODIFY `Sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -440,13 +460,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `sinbox`
 --
 ALTER TABLE `sinbox`
-  MODIFY `Sl` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Sl` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tinbox`
 --
 ALTER TABLE `tinbox`
-  MODIFY `Sl` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Sl` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

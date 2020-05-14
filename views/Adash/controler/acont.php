@@ -27,7 +27,7 @@ $var;
 
 	function getainbox()
 	{
-		$query ="SELECT * FROM ainbox";
+		$query ="SELECT * FROM ainbox where Status='unread'";
 		$products = get($query);
 		return $products;
 	}
