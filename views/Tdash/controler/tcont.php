@@ -188,7 +188,7 @@ else{
 
     $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('$var','$fname','$sub')";
 
-    execute($query);
+  //  execute($query);
     $_SESSION["id"]=$fname;
   header("Location:../views/messagebox.php");
                             }
@@ -211,9 +211,12 @@ else{
 
     $query="INSERT INTO ainbox(Type,SenderId,Subject,Message,Status) VALUES ('Teacher','$var','$aname','$aemail','unread')";
     $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','ADMIN','$aemail')";
+$query3="INSERT INTO tinbox(Type,SenderId,ReceiverId,Subject,Message,Status) VALUES ('Sent Message','ADMIN','$var','$aname','$aemail','read')";
+
 
     execute($query);
     execute($query2);
+    execute($query3);
 
   header("Location:../Views/contact Admin.php");
   }
@@ -231,11 +234,13 @@ else{
 
 
     $query="INSERT INTO sinbox(Type,SenderId,ReceiverId,Subject,Message,Status) VALUES ('Teacher','$var','$uid','$aname','$aemail','unread')";
+    $query3="INSERT INTO tinbox(Type,SenderId,ReceiverId,Subject,Message,Status) VALUES ('Sent Message','$uid','$var','$aname','$aemail','read')";
 
     $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','$uid','$aemail')";
 
    execute($query);
       execute($query2);
+      execute($query3);
     echo $query;
 
     echo $query2;
@@ -274,9 +279,15 @@ else{
 
     $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','$var2','$aemail')";
 
+    $query="UPDATE sinbox SET Type='Teacher',SenderId='$var',ReceiverId='$var2',Subject='Reply',Message='$aemail',Status='unread' WHERE SenderId='$var' and ReceiverId='$var2'";
+    $query3="UPDATE ainbox SET Type='Teacher',SenderId='$var',Subject='Reply',Message='$aemail',Status='unread' WHERE SenderId='$var'";
+    execute($query3);
+
    execute($query2);
+   execute($query);
 
 
+echo $query;
 
   header("Location:../Views/messagebox.php");
 

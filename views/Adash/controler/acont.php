@@ -22,7 +22,10 @@ $var;
   {
     insertadmin();
   }
-
+  else if(isset($_POST["send"]))
+  {
+    sendmessagetochatbox();
+  }
 
 
 	function getainbox()
@@ -144,8 +147,9 @@ if(isset($_POST["fnamee"])){
 
   $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('ADMIN','$fname','$sub')";
   $query2="UPDATE ainbox SET Status='read' WHERE Sl='$slno'";
+
   echo $query;
-  execute($query);
+  //execute($query);
   execute($query2);
   $_SESSION["id"]=$fname;
 header("Location:../views/messagebox.php");
@@ -218,5 +222,31 @@ function getmsgnoti()
   return $products;
 }
 
+function sendmessagetochatbox()
+{ session_start();
 
+  if(!empty('$_SESSION["loggedinuser"]')){
+
+  $var2=$_SESSION["id"];
+  }
+
+
+  $aemail=$_POST["massage"];
+
+
+  $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('ADMIN','$var2','$aemail')";
+
+  $query="UPDATE sinbox SET Type='ADMIN',SenderId='ADMIN',ReceiverId='$var2',Subject='Reply',Message='$aemail',Status='unread' WHERE SenderId='ADMIN' and ReceiverId='$var2'";
+  $query3="UPDATE tinbox SET Type='ADMIN',SenderId='ADMIN',ReceiverId='$var2',Subject='Reply',Message='$aemail',Status='unread' WHERE SenderId='ADMIN' and ReceiverId='$var2'";
+
+
+ execute($query2);
+ execute($query3);
+ execute($query);
+
+echo $query;
+
+header("Location:../Views/messagebox.php");
+
+}
 ?>

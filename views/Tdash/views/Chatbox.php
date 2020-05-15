@@ -127,7 +127,7 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
-  position:center;
+  margin-right: 47%;
 }
 
 input[type=submit]:hover {
@@ -214,20 +214,11 @@ echo "<td>".$product["Subject"]."</td>";
 
 
    <div class="container">
-  <center><h2>To Id :</h2><input type="text" name="fnamee" id="fname" required ><br><br></center>
-     <div class="row">
+  <center><h2>To Id :</h2><input type="text" name="fnamee" id="fname"  required ><br><br></center>
 
 
-       <div class="col-25">
-        <h2> <label for="subject">Massage Box:</label><h2>
-       </div>
-       <div class="col-75">
-         <textarea id="subject" name="subject" placeholder="Write Your Massage.."  style="height:200px; font-size:30px;" required></textarea>
-       </div>
-     </div>
-     <div class="row">
        <input type="submit" name="inserttext" value="Submit">
-     </div>
+
 
    </div>
   </form>
