@@ -220,7 +220,15 @@ table tr:not(:first-child){
 * {
   box-sizing: border-box;
 }
+.eror{
+	margin-top: 9px;
+	background: #fe8b8e;
+	padding: 0px;
+	text-align: center;
+	font-size: 16px;
+	transition: all 0.5s ease;
 
+}
 
 col-75.input[type=text], select, textarea {
   width: 100%;
@@ -294,7 +302,8 @@ input[type=submit]:hover {
 
 
 <body>
-	<form  method="post" action="../controler/scont.php" enctype="multipart/form-data">
+
+	<form  method="post" onsubmit="return validate();" action="../controler/scont.php" enctype="multipart/form-data">
 	<center><h1>InBox</h1></center>
     <div class="message_box">
         <div class="message_logs">
@@ -329,10 +338,37 @@ input[type=submit]:hover {
             </div>
 
         <div class="chat-form">
-            <textarea></textarea>
-            <button>send</button>
+            <textarea name="massage" id="message"></textarea>
+
+            <button name="send">send</button>
+
         </div>
+				<div class="eror" id="error_message"></div>
 </div>
 	</form>
 </body>
 </html>
+<script>
+
+function validate(){
+
+
+  var message = document.getElementById("message").value;
+
+  var error_message = document.getElementById("error_message");
+
+  error_message.style.padding = "10px";
+
+  var text;
+
+
+
+  if(message.length <=1){
+    text = "Please Write Your massage in details.";
+    error_message.innerHTML = text;
+    return false;
+  }
+  alert("Message Sent Successfully!");
+  return true;
+}
+</script>

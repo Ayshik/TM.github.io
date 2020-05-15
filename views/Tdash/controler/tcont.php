@@ -25,6 +25,12 @@ $var2;
     sendmessagetoteacher();
   }
 
+  else if(isset($_POST["send"]))
+  {
+    sendmessagetochatbox();
+  }
+
+
 
 
 
@@ -253,4 +259,28 @@ else{
   }
 
 
-?>
+
+  function sendmessagetochatbox()
+  { session_start();
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+      $var=$_SESSION["loggedinuser"];
+    $var2=$_SESSION["id"];
+    }
+
+
+    $aemail=$_POST["massage"];
+
+
+    $query2="INSERT INTO chatbox(Sender,Receiver,Message) VALUES ('$var','$var2','$aemail')";
+
+   execute($query2);
+
+
+
+  header("Location:../Views/messagebox.php");
+
+  }
+
+
+  ?>
