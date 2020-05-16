@@ -3,6 +3,11 @@
 
 session_start();
 
+include('../controler/scont.php');
+if (!isLoggedIn()) {
+
+  header('location: ../../Home.php');
+}
 
  ?>
 

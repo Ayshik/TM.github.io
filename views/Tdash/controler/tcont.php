@@ -30,7 +30,10 @@ $var2;
     sendmessagetochatbox();
   }
 
-
+  else if(isset($_POST["websurvey"]))
+  {
+    insertwebsurvey();
+  }
 
 
 
@@ -292,6 +295,45 @@ echo $query;
   header("Location:../Views/messagebox.php");
 
   }
+
+
+  function insertwebsurvey()
+  {    session_start();
+
+    if(!empty('$_SESSION["loggedinuser"]')){
+    $var=$_SESSION["loggedinuser"];
+
+  }
+
+      $one=$_POST["one"];
+        $two=$_POST["two"];
+          $three=$_POST["three"];
+            $four=$_POST["four"];
+              $five=$_POST["five"];
+
+  $query="INSERT INTO `wsreport` (`Type`, `UserName`, `Name`, `Satisfaction`, `Difficulties`, `Comments`, `Rate`) VALUES ('Teacher','$var', '$one', '$two', '$three', '$four', '$five')";
+
+  execute($query);
+
+  echo "<script type='text/javascript'>alert('Review submitted);
+  window.location='../views/SDashboard.php';
+  </script>";
+
+  header("Location:../views/Tdashboard.php");
+
+
+
+  }
+
+  function isLoggedIn()
+  {
+    if (isset($_SESSION['loggedinuser'])) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 
 
   ?>

@@ -28,7 +28,14 @@
   {
     sendmessagetochatbox();
   }
-
+  else if(isset($_POST["tsurvey"]))
+  {
+    insertteachersurvey();
+  }
+  else if(isset($_POST["websurvey"]))
+  {
+    insertwebsurvey();
+  }
 
 
 
@@ -59,6 +66,8 @@
     //echo $target_file;
     $query="UPDATE `student` SET `Picture`='$target_file' WHERE `UserName`='$var'";
     execute($query);
+
+
 }
 
   }
@@ -79,6 +88,7 @@
     $product=get($query);
     return $product[0];
 
+
   }
   function getpic()
   {
@@ -95,6 +105,7 @@
     $query="SELECT Picture FROM student WHERE UserName='$var'";
     $pro=get($query);
     return $pro[0];
+
 
   }
 
@@ -266,4 +277,91 @@ header("Location:../Views/messagebox.php");
 }
 
 
+
+function getteachersurvey()
+{
+
+  $query ="SELECT * FROM tsques";
+  $products = get($query);
+  return $products[0];
+}
+
+
+function getwebsurvey()
+{
+
+  $query ="SELECT * FROM wsques";
+  $products = get($query);
+  return $products[0];
+}
+
+
+function insertteachersurvey()
+{    session_start();
+
+  if(!empty('$_SESSION["loggedinuser"]')){
+  $var=$_SESSION["loggedinuser"];
+
+}
+
+    $one=$_POST["one"];
+      $two=$_POST["two"];
+        $three=$_POST["three"];
+          $four=$_POST["four"];
+            $five=$_POST["five"];
+            $six=$_POST["six"];
+            $seven=$_POST["seven"];
+            $eight=$_POST["eight"];
+
+$query="INSERT INTO `tcomments` (`SId`, `SName`, `TeacherId`, `TeachingMon`, `TimeMain`, `StudyExp`, `TeachingQ`, `Comments`, `Rating`) VALUES ('$var', '$one', '$two', '$three', '$four', '$five', '$six', '$seven', '$eight')";
+
+execute($query);
+
+echo "<script type='text/javascript'>alert('Review submitted);
+window.location='../views/tserdash.php';
+</script>";
+
+header("Location:../views/SDashboard.php");
+}
+
+
+
+
+
+function insertwebsurvey()
+{    session_start();
+
+  if(!empty('$_SESSION["loggedinuser"]')){
+  $var=$_SESSION["loggedinuser"];
+
+}
+
+    $one=$_POST["one"];
+      $two=$_POST["two"];
+        $three=$_POST["three"];
+          $four=$_POST["four"];
+            $five=$_POST["five"];
+
+$query="INSERT INTO `wsreport` (`Type`, `UserName`, `Name`, `Satisfaction`, `Difficulties`, `Comments`, `Rate`) VALUES ('Student','$var', '$one', '$two', '$three', '$four', '$five')";
+
+execute($query);
+
+echo "<script type='text/javascript'>alert('Review submitted);
+window.location='../views/SDashboard.php';
+</script>";
+
+header("Location:../views/SDashboard.php");
+
+
+
+}
+
+function isLoggedIn()
+{
+  if (isset($_SESSION['loggedinuser'])) {
+    return true;
+  }else{
+    return false;
+  }
+}
 ?>

@@ -104,7 +104,7 @@ function updatewsq()
   execute($query);
 
 
-//header("Location:../views/Wsurvey.php");
+header("Location:../views/Wsurvey.php");
 
 }
 
@@ -124,9 +124,12 @@ function updatetsq()
         $three=$_POST["three"];
           $four=$_POST["four"];
             $five=$_POST["five"];
+            $six=$_POST["six"];
+            $seven=$_POST["seven"];
+            $eight=$_POST["eight"];
 
 
-  $query="UPDATE tsques SET Question1='$one',Question2='$two',Question3='$three',Question4='$four',Question5='$five' WHERE Action='ADMIN'";
+  $query="UPDATE tsques SET Question1='$one',Question2='$two',Question3='$three',Question4='$four',Question5='$five', Question6='$six',Question7='$seven',Question8='$eight' WHERE Action='ADMIN'";
 
   execute($query);
 

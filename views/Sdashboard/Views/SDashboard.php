@@ -4,7 +4,7 @@
 include('sheader.php');
 
 include('snavbar.php');
-require ('../controler/scont.php');
+//require ('../controler/scont.php');
 $products = getstudent();
 $pro = getpic();
 $message=getmsgnoti();

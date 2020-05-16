@@ -718,7 +718,7 @@ color: #a2a6af
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                               <center> <input class="btn btn-primary" type="submit" value="Submit"></center>
+                               <center> <input class="btn btn-primary" type="submit" name="websurvey" value="Submit"></center>
                             </div>
                         </div>
                     </form>
@@ -729,8 +729,6 @@ color: #a2a6af
 </div>
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
 
-</script>
 </body>
 </html>

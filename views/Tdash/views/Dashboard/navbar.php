@@ -38,7 +38,7 @@
        <div class="bg-white py-2 collapse-inner rounded">
          <h6 class="collapse-header">Edit & Delete:</h6>
          <a class="collapse-item" href="pdash.php">Update Profile</a>
-         <a class="collapse-item" href="ddash.php">Delete Account</a>
+         
        </div>
      </div>
    </li>

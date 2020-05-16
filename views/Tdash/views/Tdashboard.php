@@ -5,7 +5,7 @@ include('Dashboard/header.php');
 
 include('Dashboard/navbar.php');
 
-require ('../controler/tcont.php');
+//require ('../controler/tcont.php');
 $products = getteacher();
 $pro = getpic();
 

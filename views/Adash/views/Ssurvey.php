@@ -279,6 +279,27 @@
 						<div class="form-check-icon"></div>
 					</div>
 
+					<div class="form-row">
+						<label for="first-name" class="form-label">QUESTION 6:</label>
+						<input name="six" type="text" value="<?php echo $product["Question6"]?>" id="first-name" class="form-textbox input-animate-target" required>
+						<div class="input-animate"></div>
+						<div class="form-check-icon"></div>
+					</div>
+
+					<div class="form-row">
+						<label for="first-name" class="form-label">QUESTION 7:</label>
+						<input name="seven" type="text" value="<?php echo $product["Question7"]?>" id="first-name" class="form-textbox input-animate-target" required>
+						<div class="input-animate"></div>
+						<div class="form-check-icon"></div>
+					</div>
+
+					<div class="form-row">
+						<label for="first-name" class="form-label">QUESTION 8:</label>
+						<input name="eight" type="text" value="<?php echo $product["Question8"]?>" id="first-name" class="form-textbox input-animate-target" required>
+						<div class="input-animate"></div>
+						<div class="form-check-icon"></div>
+					</div>
+
 					<div>
 						<input type="submit" name="Update_tsques" value="Submit" class="form-submit">
 					</div>

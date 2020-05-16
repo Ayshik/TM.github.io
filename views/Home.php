@@ -574,7 +574,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 3</div>
-                  <img src="pic/MAHMUD.png" style="width:100%">
+                  <img src="pic/SAAD.png" style="width:100%">
 
                 </div>
 

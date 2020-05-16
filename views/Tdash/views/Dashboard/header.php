@@ -3,7 +3,11 @@
 
 session_start();
 
+include('../controler/tcont.php');
+if (!isLoggedIn()) {
 
+  header('location: ../../Home.php');
+}
  ?>
 
 

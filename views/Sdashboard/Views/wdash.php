@@ -1,20 +1,30 @@
+
+<?php
+	  require_once ('../controler/scont.php');
+
+
+	   $product=getwebsurvey();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from https://bootdey.com  -->
     <!--  All snippets are MIT license https://bootdey.com/license -->
-    <title>Bootdey.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website survey</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	body{
-background:#f9f9fb; 
-background-color:black;   
+background:#f9f9fb;
+background-color:black;
 }
 .view-account{
-background:#FFFFFF; 
+background:#FFFFFF;
 margin-top:20px;
 }
 .view-account .pro-label {
@@ -601,111 +611,111 @@ color: #a2a6af
     <div class="view-account">
         <section class="module">
             <div class="module-inner">
-                
+
                 <div class="content-panel">
                    <center> <h1 class="title"><b>Website Survey</b></h1></center></br></br>
-                    <form class="form-horizontal">
+                    <form method="post" onsubmit="return vali();" action="../controler/scont.php" class="form-horizontal">
                         <fieldset class="fieldset">
-                            
-                           
+
+
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label"><b>Question<sub>1:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled> 
+                                    <input type="text" class="form-control" value="<?php echo $product["Question1"]?>" disabled>
                                 </div>
                             </div>
-        
+
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label"><b>Answer:</b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Your Answer">
+                                    <input type="text" class="form-control" name="one" placeholder="Your Answer"required>
                                 </div>
                             </div>
-							
+
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>2:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
-                                    
+                                    <input type="text" class="form-control" value="<?php echo $product["Question2"]?>" disabled>
+
                                 </div>
                             </div>
-							
-							
+
+
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Answer:</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Your Answer">
-                                    
+                                    <input type="text" class="form-control" name="two"placeholder="Your Answer"required>
+
                                 </div>
                             </div>
-							
-                            
-                        
+
+
+
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>3:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="" disabled>
-                                    
+                                    <input type="email" class="form-control" value="<?php echo $product["Question3"]?>" disabled>
+
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Answer:</b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Your Answer">
-                                    
+                                    <input type="text" class="form-control" name="three" placeholder="Your Answer"required>
+
                                 </div>
                             </div>
-							
-							
+
+
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>4:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
-                                    
+                                    <input type="text" class="form-control" value="<?php echo $product["Question4"]?>" disabled>
+
                                 </div>
                             </div>
-							
-							
-							
+
+
+
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Answer:</b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Your Answer">
-                                    
+                                    <input type="text" class="form-control" name="four" placeholder="Your Answer"required>
+
                                 </div>
                             </div>
-							
-							
-							
-							
+
+
+
+
 							<div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Question<sub>5:</sub></b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="" disabled>
-                                    
+                                    <input type="text" class="form-control" value="<?php echo $product["Question5"]?>" disabled>
+
                                 </div>
                             </div>
-							
-							
-						
+
+
+
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label"><b>Answer:</b></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Your Answer">
-                                    
+                                    <input type="text" class="form-control" id='rate' name="five"placeholder="Your Answer" required>
+
                                 </div>
                             </div>
-							
-							
-							
-							
-							
-                            
+
+
+
+
+
+
                         </fieldset>
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                               <center> <input class="btn btn-primary" type="submit" value="Submit"></center>
+                               <center> <input class="btn btn-primary" type="submit" name="websurvey"value="Submit"></center>
                             </div>
                         </div>
                     </form>
@@ -716,8 +726,7 @@ color: #a2a6af
 </div>
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	
-</script>
+
+
 </body>
 </html>

@@ -132,31 +132,3 @@ body{
 </body>
 
 </html>
-<script>
-
-function validate(){
-
-  var subject = document.getElementById("subject").value;
-  var message = document.getElementById("message").value;
-
-  var error_message = document.getElementById("error_message");
-
-  error_message.style.padding = "10px";
-
-  var text;
-
-  if(subject.length < 10){
-    text = "Please Enter Correct Subject";
-    error_message.innerHTML = text;
-    return false;
-  }
-
-  if(message.length <= 5){
-    text = "Please Write Your massage in details.";
-    error_message.innerHTML = text;
-    return false;
-  }
-  alert("Message Sent Successfully!");
-  return true;
-}
-</script>
