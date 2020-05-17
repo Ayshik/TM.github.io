@@ -132,3 +132,29 @@ body{
 </body>
 
 </html>
+unction validate(){
+
+  var subject = document.getElementById("subject").value;
+  var message = document.getElementById("message").value;
+
+  var error_message = document.getElementById("error_message");
+
+  error_message.style.padding = "10px";
+
+  var text;
+
+  if(subject.length < 10){
+    text = "Please Write your Subject correctly more than 10 words";
+    error_message.innerHTML = text;
+    return false;
+  }
+
+  if(message.length <= 5){
+    text = "Please Write your massage correctly minimum 5 words";
+    error_message.innerHTML = text;
+    return false;
+  }
+  alert("Your Message has been sent");
+  return true;
+}
+</script>
