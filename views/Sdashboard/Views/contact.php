@@ -132,7 +132,10 @@ body{
 </body>
 
 </html>
-unction validate(){
+
+<script>
+
+function validate(){
 
   var subject = document.getElementById("subject").value;
   var message = document.getElementById("message").value;
