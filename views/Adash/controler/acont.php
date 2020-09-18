@@ -155,7 +155,8 @@ if(isset($_POST["fnamee"])){
   //execute($query);
   execute($query2);
   $_SESSION["id"]=$fname;
-header("Location:../views/messagebox.php");
+  echo $fname;
+//header("Location:../views/messagebox.php");
 }
 }
 
