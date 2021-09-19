@@ -145,10 +145,10 @@ if(isset($_POST["fnamee"])){
 
   $fname=$_POST["fnamee"];
   $slno=$_POST["sl"];
-  $sub=$_POST["subject"];
+  
 
 
-  $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('ADMIN','$fname','$sub')";
+  $query="INSERT INTO `chatbox`(`Sender`, `Receiver`, `Message`) VALUES ('ADMIN','$fname')";
   $query2="UPDATE ainbox SET Status='read' WHERE Sl='$slno'";
 
   echo $query;
